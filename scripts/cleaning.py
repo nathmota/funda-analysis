@@ -12,7 +12,7 @@ UNMISSABLE_COLUMNS = ['url', 'price', 'address','listed_since', 'zip_code', 'siz
 
 chunk_size = 300
 chunk_index = 1
-pre_df = pd.read_csv('/home/nathalia/Projects/funda/data/funda_raw_data.csv') 
+pre_df = pd.read_csv('~/funda/data/funda_raw_data.csv') 
 
 def general_cleaning(df):
     # dropping rows missing very important columns value
@@ -355,7 +355,7 @@ def clean_address(df):
 
 df = general_cleaning(pre_df)
 df.to_csv('df_dropped_cols.csv', index=False)
-df = pd.read_csv('/home/nathalia/Projects/funda/df_dropped_cols.csv', chunksize=chunk_size)
+df = pd.read_csv('~/funda/df_dropped_cols.csv', chunksize=chunk_size)
 
 for chunk in df:
     chunk = (
@@ -376,7 +376,7 @@ for chunk in df:
             .pipe(clean_address)
     )
     filename = f'chunk_{chunk_index}.csv'
-    file_path = f'/home/nathalia/Projects/funda/chunks/{filename}'
+    file_path = f'~/funda/chunks/{filename}'
     chunk.to_csv(file_path, index=False)    
     chunk_index += 1
 
