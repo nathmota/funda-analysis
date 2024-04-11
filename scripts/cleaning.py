@@ -13,6 +13,7 @@ UNMISSABLE_COLUMNS = ['url', 'price', 'address','listed_since', 'zip_code', 'siz
 chunk_size = 300
 chunk_index = 1
 pre_df = pd.read_csv('/home/nathalia/Projects/funda/data/funda_raw_data.csv') 
+#pre_df = pd.read_csv('/home/nathalia/Projects/funda/data/provincie-drenthe.csv') 
 
 def general_cleaning(df):
     # dropping rows with missing values in essential columns
@@ -20,6 +21,7 @@ def general_cleaning(df):
         df = df.dropna(subset=[label])
     # removing duplicates
     df = df.drop_duplicates()
+    df = df.drop_duplicates(subset='address')
     # dropping unused columns
     df = df.drop(columns=COLUMNS_TO_DROP)
     return df
@@ -27,14 +29,14 @@ def general_cleaning(df):
 def clean_size(df):
     df['size'] = df['size'].str.extract(r'(\d+)')
     df = df.dropna(subset='size')
-    df['size'] =  df['size'].astype(int)
+    df.loc[:, 'size'] =  df['size'].astype(int)
     df = df.rename(columns={'size': 'size_m2'})
     return df    
 
 def clean_price(df):
     df['price'] = df['price'].str.replace('.', '').str.extract(r'(\d+)')
     df = df.dropna(subset='price')
-    df['price'] = df['price'].astype(int)
+    df.loc[:,'price'] = df['price'].astype(int)
     return df
 
 def clean_price_m2(df):
@@ -368,7 +370,7 @@ for chunk in df:
             .pipe(clean_address)
     )
     filename = f'chunk_{chunk_index}.csv'
-    file_path = f'/home/nathalia/Projects/funda/data/chunks/{filename}'
+    file_path = f'/home/nathalia/Projects/funda/data/chunks/drenthe/{filename}'
     chunk.to_csv(file_path, index=False)    
     chunk_index += 1
 
