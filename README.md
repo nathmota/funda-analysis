@@ -1,10 +1,11 @@
 
-# Funda Properties Listings Data Analysis and Visualization 
+# Funda Properties Listings Data Analysis 
 
 ### Project Overview
 
 ### Project Title:
-[Insert project title]
+Analysis of the Dutch Real Estate Market
+Based on Properties Listings Available on *funda.nl* website.
 
 ### Project Objective:
   Presenting an overview of the housing market in the Netherlands that are available on Funda website;
