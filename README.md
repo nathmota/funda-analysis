@@ -1,20 +1,24 @@
-
 # Funda Properties Listings Data Analysis 
 
-### Project Overview
+Nathalia V. M. de Oliveira - April, 2024.
 
-### Project Title:
-Analysis of the Dutch Real Estate Market
+### Analysis of the Dutch Real Estate Market
 Based on Properties Listings Available on *funda.nl* website.
 
-### Project Objective:
-  Presenting an overview of the housing market in the Netherlands that are available on Funda website;
-Getting some insights about areas with good cost and benefit.
+## Contents
 
-### Project Team:
-Nathalia V. M. de Oliveira
-Date:
-Mar/2024
+- [Installation](#installation)
+- [Usage](#usage)
+- [Detailed Documentation](#detailed-documentation)
 
-### Data Overview
+## Installation
 
+Installation instructions.
+
+## Usage
+
+Basic usage commands.
+
+## Detailed Documentation
+
+For more details, see the [full documentation](docs/index.md).
