@@ -1,7 +1,23 @@
 
-# Full Documentation
+# Funda Properties Listings Data Analysis 
 
-Welcome to the full project documentation. Here you will find details about the results, insights, figures, and reports.
+Nathalia V. M. de Oliveira - April, 2024.
+
+### Analysis of the Dutch Real Estate Market
+Based on Properties Listings Available on *funda.nl* website.
+
+### Project Objective:
+1. Provide an overview of the real estate market in the Netherlands through online property listings.
+2. Generate insights into the most valuable or cost-effective locations among provinces and cities.
+3. Examine the profile of houses and the distribution of their most common characteristics.
+4. Identify factors that may contribute to the variation in property prices.
+
+### Data Overview
+Data Source: [Funda](https://www.funda.nl/)
+
+The data has been collected on the 10th and 11th of April, 2024. It took about two whole days.
+
+
 
 ## Table of Contents
 
