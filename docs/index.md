@@ -21,11 +21,11 @@ Funda is a Dutch platform established over 20 years ago. According to their webs
 
 According Funda's Terms and Conditions, scraping its website is only allowed for personal use, which means that any commercial use is prohibited.
 
-**Data description:**
+- Data description:
 
 The data has been collected on the 10th and 11th of April, 2024, which means that the dataset for this study case is regarding all the listings of available properties on sale **that period**.
 The data was scraped from Funda using **FundaScraper** for Python, utilising the following arguments:
-
+```
 area=provincies  	  (list with all Dutch provincies)
 
 want_to=buy       	  (regarding properties for sale)
@@ -37,7 +37,7 @@ page_start=1
 n_pages=666   	 (whatever the number of properties returned in the search, there will be max 666 pages available for access, which means 9999 entries, since each page contains 15 listings). 
 
 raw_data=True 	(to fetch the data without any preprocessing)
-
+```
 
 I decided to fetch the raw data and do all the preprocessing myself. But there is an option to set the argument to False to get beautifully processed and structured data.
 
