@@ -4,8 +4,6 @@ This project involves collecting, processing and analyzing data of the Dutch rea
 
 For more details, see the [full documentation](docs/index.md).
 
-
-
 ## Repository Structure
 - `data/`: Raw and processed data
 - `src/`: Web scraping and data processing scripts.
@@ -40,4 +38,4 @@ For more details, see the [full documentation](docs/index.md).
 ## Results
 For the results and visualizations see the [full documentation](docs/index.md).
 
-
+![Report_cover_page](figures/cover_page.png)
