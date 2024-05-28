@@ -13,18 +13,14 @@ Nathalia V. M. de Oliveira - April, 2024.
 
 ## Data Overview
 
-- Data Source:
-
-[Funda](https://www.funda.nl/)
-
-Funda is a Dutch platform established over 20 years ago. According to their website, Funda is the largest platform connecting supply and demand in the real estate market of the Netherlands, with over 4 million unique visitors per month and hosting around 97% of the Dutch housing market.
+[Funda](https://www.funda.nl/) is a Dutch platform established over 20 years ago. According to their website, Funda is the largest platform connecting supply and demand in the real estate market of the Netherlands, with over 4 million unique visitors per month and hosting around 97% of the Dutch housing market.
 
 According Funda's Terms and Conditions, scraping its website is only allowed for personal use, which means that any commercial use is prohibited.
 
 - Data description:
 
 The data has been collected on the 10th and 11th of April, 2024, which means that the dataset for this study case is regarding all the listings of available properties on sale **that period**.
-The data was scraped from Funda using **FundaScraper** for Python, utilising the following arguments:
+The data was scraped from Funda using [FundaScraper](https://pypi.org/project/funda-scraper/) for Python, utilising the following arguments:
 ```
 area=provincies  	  (list with all Dutch provincies)
 
