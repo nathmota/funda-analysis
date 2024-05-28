@@ -13,7 +13,7 @@ Nathalia V. M. de Oliveira - April, 2024.
 
 ## Data Overview
 
-**Data Source:** 
+- Data Source:
 
 [Funda](https://www.funda.nl/)
 
