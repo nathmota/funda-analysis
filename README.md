@@ -22,7 +22,7 @@ Steps:
     # Go into the repository
     $ cd funda-analysis
     ```
-2. Install the dependencies using pip or you own virtual environment:
+2. Install the dependencies using pip or you preferred virtual environment:
     ```bash
     pip install -r requirements.txt
     ```
