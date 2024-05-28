@@ -65,4 +65,4 @@ Steps:
 ## Results
 For the results and visualizations see the [full documentation](docs/index.md).
 
-![Report_cover_page](figures/cover_page.png)
+![Report_cover_page](/figures/cover_page.png)
