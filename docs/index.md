@@ -5,7 +5,7 @@ Nathalia V. M. de Oliveira - April, 2024.
 
 ### Analysis of the Dutch Real Estate Market
 
-####Based on Properties Listings Available on *funda.nl* website.
+Based on Properties Listings Available on *funda.nl* website.
 
 ## Project Objective:
 1. Provide an overview of the real estate market in the Netherlands through online property listings.
@@ -14,7 +14,8 @@ Nathalia V. M. de Oliveira - April, 2024.
 4. Identify factors that may contribute to the variation in property prices.
 
 ## Data Overview
-Data Source: [Funda](https://www.funda.nl/)
+Data Source: 
+[Funda](https://www.funda.nl/)
 The data has been collected on the 10th and 11th of April, 2024. It took about 48 hours.
 Funda is a Dutch platform established over 20 years ago. According to their website, Funda is the largest home website connecting supply and demand in the real estate market of the Netherlands, with 4.5 million unique visitors per month and hosting around 97% of the Dutch housing market.
 
