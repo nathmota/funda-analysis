@@ -27,17 +27,23 @@ The data has been collected on the 10th and 11th of April, 2024, which means tha
 The data was scraped from Funda using **FundaScraper** for Python, utilising the following arguments:
 
 area=provincies  	  (list with all Dutch provincies)
+
 want_to=buy       	  (regarding properties for sale)
+
 find_past=False  	  (regarding properties still in the market)
-page_start=1   		 
+
+page_start=1   	
+
 n_pages=666   	 (whatever the number of properties returned in the search, there will be max 666 pages available for access, which means 9999 entries, since each page contains 15 listings). 
+
 raw_data=True 	(to fetch the data without any preprocessing)
+
 
 I decided to fetch the raw data and do all the preprocessing myself. But there is an option to set the argument to False to get beautifully processed and structured data.
 
 [See the provinces](https://www.funda.nl/koop/bladeren/). 
 
-![Location searching results](docs/figures/fig1.png)
+![Location searching results](figures/fig1.png)
 
 
 ## Table of Contents
