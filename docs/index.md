@@ -11,7 +11,7 @@ Nathalia V. M. de Oliveira - April, 2024.
 3. Examine the profile of houses and the distribution of their most common features;
 4. Identify factors that may contribute to the variation in property prices.
 
-## Data Overview
+## Data Source
 
 [Funda](https://www.funda.nl/) is a Dutch platform established over 20 years ago. According to their website, Funda is the largest platform connecting supply and demand in the real estate market of the Netherlands, with over 4 million unique visitors per month and hosting around 97% of the Dutch housing market.
 
@@ -46,7 +46,7 @@ Although the search by province may return 15.000 results, for instance, Funda o
 
 Then, every 50 pages (or 750 entries), the script scrapes and records the data into a province csv.
 
-- Data description:
+### Data Overview
 
 The data was collected on the 10th and 11th of April, 2024, which means that the dataset for this case study includes all the housing property listings **available** for sale during **that period**.
 
