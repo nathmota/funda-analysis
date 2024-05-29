@@ -21,17 +21,18 @@ According Funda's Terms and Conditions, scraping its website is only allowed for
 
 The data was collected on the 10th and 11th of April, 2024, which means that the dataset for this case study includes all the housing property listings **available** for sale during **that period**.
 
+## Collecting the Data
+
 The data was scraped from Funda using [FundaScraper](https://pypi.org/project/funda-scraper/) for Python, utilising the following arguments:
 ```
-area=provincies ---------- To fetch data by province
+area=provincie ----------- to fetch data by province
 want_to=buy -------------- regarding properties for sale
 find_past=False ---------- regarding properties available, not sold
-n_pages = 50
+n_pages = 50 ------------- records every 50 pages (750 entries) to avoid loss in case of execution failure
 page_start=1   	
-n_pages=666 -------------- whatever the number of properties returned in the search, there will be max 666 pages available for access, which means 9999 entries, since each page contains 15 listings 
-
 raw_data=True ------------ to fetch the data without any preprocessing
 ```
+About number of pages: whatever the number of properties returned in the search, there will be max 666 pages available for access, which means 9999 entries, since each page contains 15 listings 
 
 I decided to fetch the raw data and do all the preprocessing myself. But there is an option to set the argument to False to get beautifully processed and structured data.
 
