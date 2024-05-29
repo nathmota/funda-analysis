@@ -17,6 +17,8 @@ Steps:
 
 1. Clone the repository:
     ```bash
+    # Go to your project diretory
+    cd project_local_path/projects
     # Clone this repository
     $ git clone https://github.com/nathmota/funda-analysis.git
     # Go into the repository
@@ -29,16 +31,16 @@ Steps:
 3. Open the web scraping script, set the arguments as your needs, and your file path.
    For this project, the follow arguments has been used:
    ```bash
-        folder_path = '/your_path/funda/data/'  
-        provincies = ["provincie-drenthe", "provincie-groningen", "provincie-flevoland", "provincie-friesland", "provincie-zeeland", "provincie-limburg", "provincie-utrecht", "provincie-overijssel","provincie-gelderland","provincie-noord-brabant","provincie-noord-holland","provincie-zuid-holland"]
-        want_to = "buy"
-        find_past = False
-        n_pages = 50       
-        final_page = 2000
-        entries_per_page = 15
-        raw_data = True
+    raw_folder_path = 'project_path/funda-analysis/src/data/raw/'  
+    provincies = ["provincie-drenthe", "provincie-groningen", "provincie-flevoland", "provincie-friesland", "provincie-zeeland", "provincie-limburg", "provincie-utrecht", "provincie-overijssel","provincie-gelderland","provincie-noord-brabant","provincie-noord-holland","provincie-zuid-holland"]
+    want_to = "buy"
+    find_past = False
+    n_pages = 50        # records every 50 pages (750 entries) to avoid loss in case of execution failure
+    final_page = 2000
+    entries_per_page = 15
+    raw_data = True
     ```
-   If need, check [Funda Scraper](https://github.com/whchien/funda-scraper) documentation.
+   If need, check [Funda Scraper](https://github.com/whchien/funda-scraper) documentation and/or [Funda](www.funda.nl) website.
    
 4. Run the web scraping script to collect data:
     ```bash
@@ -51,7 +53,8 @@ Steps:
     python src/data_processing_script.py
     ```
 7. Open the chunks concatenator script, set the arguments as your needs, and your file path;
-   
+   `src/chunks_concat.py`
+
 8. Run the chunks concatenator script:
     ```bash
     python src/chunks_concat.py
