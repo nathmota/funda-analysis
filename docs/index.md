@@ -85,7 +85,7 @@ And they look like this:
 
 ![raw data](/docs/figures/raw1.png)
 
-You can also check it up on /data/raw/
+You can also check it up on [raw data](/data/raw/).
 
 It’s possible to see that it is going to take a lot of work.
 
