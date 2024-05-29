@@ -23,23 +23,35 @@ The data was collected on the 10th and 11th of April, 2024, which means that the
 
 ## Collecting the Data
 
-The data was scraped from Funda using [FundaScraper](https://pypi.org/project/funda-scraper/) for Python, utilising the following arguments:
-```
-area=provincie ----------- to fetch data by province
-want_to=buy -------------- regarding properties for sale
-find_past=False ---------- regarding properties available, not sold
-n_pages = 50 ------------- records every 50 pages (750 entries) to avoid loss in case of execution failure
-page_start=1   	
-raw_data=True ------------ to fetch the data without any preprocessing
-```
-About number of pages: whatever the number of properties returned in the search, there will be max 666 pages available for access, which means 9999 entries, since each page contains 15 listings 
+/src/webscrapin_script.py
 
+The data were scraped from Funda using [FundaScraper](https://pypi.org/project/funda-scraper/) for Python.
+There are several different set of arguments that can generate diverse searches.
+For this project, the following arguments has been used:
+
+```
+area=provincie ----------- To fetch data by province (you can also search for city, neighborhood or postcode);
+want_to=buy -------------- Regarding properties for sale (you can switch for "rent");
+find_past=False ---------- Regarding properties available at the moment, not already sold;
+page_start=1 ------------- Starting page;
+n_pages = 50 ------------- Regarding the amount of pages to be fetched;
+raw_data=True ------------ To fetch the data without any preprocessing.
+```
 I decided to fetch the raw data and do all the preprocessing myself. But there is an option to set the argument to False to get beautifully processed and structured data.
+
+About number of pages: 
+Although the search by province may return 15.000 results, for instance, Funda only makes accessible max 666 pages, as you can see bellow, which means 9990 entries, since each page contains 15 listings.
 
 [See the provinces](https://www.funda.nl/koop/bladeren/). 
 
-![Location searching results](figures/fig1.png)
+![Search results](/docs/figures/fig1.png)
 
+
+Then, every 50 pages (or 750 entries), the script scrapes and records the data into a province csv.
+
+## Processing the Data
+
+/src/data_processing_script.py
 
 ## Table of Contents
 
