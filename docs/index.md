@@ -27,12 +27,12 @@ There are several different set of arguments that can generate diverse searches.
 For this project, the following arguments has been used:
 
 ```
-area=provincie ----------- To fetch data by province (you can also search for city, neighborhood or postcode);
-want_to=buy -------------- Regarding properties for sale (you can switch for "rent");
-find_past=False ---------- Regarding properties available at the moment, not already sold;
-page_start=1 ------------- Starting page;
-n_pages = 50 ------------- Regarding the amount of pages to be fetched;
-raw_data=True ------------ To fetch the data without any preprocessing.
+area=provincie ----------- # To fetch data by province (you can also search for city, neighborhood or postcode);
+want_to=buy -------------- # Regarding properties for sale (you can switch for "rent");
+find_past=False ---------- # Regarding properties available at the moment, not already sold;
+page_start=1 ------------- # Starting page;
+n_pages = 50 ------------- # Regarding the amount of pages to be fetched;
+raw_data=True ------------ # To fetch the data without any preprocessing.
 ```
 I decided to fetch the raw data and do all the preprocessing myself. But there is an option to set the argument to False to get beautifully processed and structured data.
 
@@ -83,7 +83,7 @@ The raw scraped content contains following information:
 
 And they look like this:
 
-![raw data](docs/figures/raw1.png)
+![raw data](/docs/figures/raw1.png)
 
 You can also check it up on /data/raw/
 
