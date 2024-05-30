@@ -25,23 +25,23 @@ According Funda's Terms and Conditions, scraping its website is only allowed for
 The data were scraped from Funda using [FundaScraper](https://github.com/whchien/funda-scraper) for Python.
 There are several different sets of arguments that can generate diverse searches. For this project, the following arguments have been used:
 ```
-area=provincie ----------- # To fetch data by province (you can also search for city, neighborhood, or postcode)
-want_to=buy -------------- # Regarding properties for sale (you can switch to "rent")
-find_past=False ---------- # Regarding properties available at the moment, not already sold
-page_start=1 ------------- # Starting page
-n_pages = 50 ------------- # Number of pages to be fetched
-raw_data=True ------------ # To fetch the data without any preprocessing
+area=provincie
+want_to=buy
+find_past=False
+page_start=1
+n_pages = 50
+raw_data=True
 ```
 
-- area=provincie
+- **area=provincie**:
 To fetch data by province. You can also search for city, neighborhood, or postcode.
-- want_to=buy
+- **want_to=buy**:
 Regarding properties for sale. You can switch to "rent".
-- find_past=False
+- **find_past=False**:
 Regarding properties available at the moment, not already sold
-- n_pages = 50
+- **n_pages = 50**:
 Number of pages to be fetched. A certain number of pages I found is safe to record partially, to avoid loss in case of execution failure.
-- raw_data=True
+- **raw_data=True**:
 To fetch the data without any preprocessing. I decided to do all the preprocessing myself. However, it's possible to set the argument to False to receive beautifully processed and structured data.
 
 Although searching by province may return 12,000 results, for instance, Funda only makes a maximum of 666 pages accessible, as shown below. This equates to 9,990 entries, as each page contains 15 listings.
@@ -52,6 +52,7 @@ Then, every 50 pages (or 750 entries), the script scrapes and records the data i
 [See the provinces results.](https://www.funda.nl/koop/bladeren/). 
 
 ![Search results](figures/fig1.png)
+![Search results](figures/666.png)
 
 
 
