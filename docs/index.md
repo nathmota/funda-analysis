@@ -15,7 +15,7 @@ Nathalia V. M. de Oliveira - April, 2024.
 
 [Funda](https://www.funda.nl/) is a Dutch platform established over 20 years ago. According to their website, Funda is the largest platform connecting supply and demand in the real estate market of the Netherlands, with over 4 million unique visitors per month and hosting around 97% of the Dutch housing market.
 
-According Funda's Terms and Conditions, scraping its website is only allowed for personal use, which means that any commercial use is prohibited.
+According Funda's Terms and Conditions, scraping its website is only allowed for personal use.
 
 
 ## Collecting the Data
@@ -23,34 +23,43 @@ According Funda's Terms and Conditions, scraping its website is only allowed for
 [Webscraping script:](/src/webscraping_script.py)
 
 The data were scraped from Funda using [FundaScraper](https://github.com/whchien/funda-scraper) for Python.
-There are several different set of arguments that can generate diverse searches.
-For this project, the following arguments has been used:
-
+There are several different sets of arguments that can generate diverse searches. For this project, the following arguments have been used:
 ```
-area=provincie ----------- # To fetch data by province (you can also search for city, neighborhood or postcode);
-want_to=buy -------------- # Regarding properties for sale (you can switch for "rent");
-find_past=False ---------- # Regarding properties available at the moment, not already sold;
-page_start=1 ------------- # Starting page;
-n_pages = 50 ------------- # Regarding the amount of pages to be fetched;
-raw_data=True ------------ # To fetch the data without any preprocessing.
+area=provincie ----------- # To fetch data by province (you can also search for city, neighborhood, or postcode)
+want_to=buy -------------- # Regarding properties for sale (you can switch to "rent")
+find_past=False ---------- # Regarding properties available at the moment, not already sold
+page_start=1 ------------- # Starting page
+n_pages = 50 ------------- # Number of pages to be fetched
+raw_data=True ------------ # To fetch the data without any preprocessing
 ```
-I decided to fetch the raw data and do all the preprocessing myself. But there is an option to set the argument to False to get beautifully processed and structured data.
 
-About number of pages: 
-Although the search by province may return 15.000 results, for instance, Funda only makes accessible max 666 pages, as you can see bellow, which means 9990 entries, since each page contains 15 listings.
+- area=provincie
+To fetch data by province. You can also search for city, neighborhood, or postcode.
+- want_to=buy
+Regarding properties for sale. You can switch to "rent".
+- find_past=False
+Regarding properties available at the moment, not already sold
+- n_pages = 50
+Number of pages to be fetched. A certain number of pages I found is safe to record partially, to avoid loss in case of execution failure.
+- raw_data=True
+To fetch the data without any preprocessing. I decided to do all the preprocessing myself. However, it's possible to set the argument to False to receive beautifully processed and structured data.
+
+Although searching by province may return 12,000 results, for instance, Funda only makes a maximum of 666 pages accessible, as shown below. This equates to 9,990 entries, as each page contains 15 listings.
+
+Then, every 50 pages (or 750 entries), the script scrapes and records the data into a csv regarding each province.
+
 
 [See the provinces results.](https://www.funda.nl/koop/bladeren/). 
 
 ![Search results](figures/fig1.png)
 
 
-Then, every 50 pages (or 750 entries), the script scrapes and records the data into a province csv.
 
 ### Data Overview
 
-The data was collected on the 10th and 11th of April, 2024, which means that the dataset for this case study includes all the housing property listings **available** for sale during **that period**.
+The data were collected on the 10th and 11th of April, 2024, which means that the dataset for this case study includes all the housing property listings **available** for sale during **that period**.
 
-The raw scraped content contains following information:
+The raw scraped dataset contains following columns:
 
 1. url
 2. price
@@ -88,6 +97,27 @@ And they look like this:
 You can also check it up on [raw data](/data/raw/).
 
 It’s possible to see that it is going to take a lot of work.
+
+And so, the following province csv files were generated. The number corresponds to the quantity of listings returned:
+
+Drenthe - 1912 
+Groningen - 1946
+Flevoland - 2161
+Friesland - 2280
+Zeeland - 3033
+Limburg - 4095
+Utrecht - 4146
+Overijssel - 4305
+Gelderland - 7410
+Zuid Holland - 9990
+Noord Brabant - 10004
+Noord Holland - 10004
+
+
+For some reason, Noord Holland and Noord Brabant have more than 9990 listings. I assumed they could be duplicates and would be treated accordingly during the processing step.
+
+The raw dataset then starts with 61286 entries and 1.1 GB in size.
+
 
 
 ## Processing the Data
