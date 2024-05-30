@@ -97,7 +97,7 @@ And they look like this:
 
 You can also check it up on [raw data](/data/raw/). It’s possible to see that it is going to take a lot of work.
 
-And so, the following province CSV files were generated. The number corresponds to the quantity of listings returned:
+And so, the following provinces CSV files were generated. The number corresponds to the quantity of listings returned:
 
 Drenthe - 1912 
 
@@ -148,19 +148,17 @@ It removes rows with **missing values** in essential columns, **eliminates dupli
 
 ### Cleaning specific features:
 
-    - **Size (size_m2)**: Removes unwanted characters, converts to numeric type, and renames the column.
-    - **Price (price)**: Removes unwanted characters and converts to numeric type.
-    - **Price per square meter (price_m2)**: Calculates the price per square meter.
-    - **Year built (year_built)**: Extracts only the last 4 digits of the year and converts to numeric type.
-    - **House age (house_age)**: Calculates the age of the house relative to the current year.
-    - **Energy label (energy_label)**: Extracts the relevant part of the energy label.
-    - **Heating (heating)**: Standardizes descriptions of the heating type.
-    - **Parking (has_parking)**: Determines if the property has parking based on the description.
-    - **Exteriors (has_balcony, has_garden, surrounding)**: Identifies if the property has a balcony and garden, and categorizes the surrounding environment.
-    - **House type (house_type), House ID (house_id), Listing date (date_list), Province (provincie)**: Extraction of these pieces of information from the URLs.
-    - **Layout (num_of_floors, located_floor, num_of_rooms, num_of_bedrooms, num_of_bathrooms, num_of_toilets)**: Extracts information about the property layout and cleans associated values.   
-    
- 
+- **Size (size_m2)**: Removes unwanted characters, converts to numeric type, and renames the column.
+- **Price (price)**: Removes unwanted characters and converts to numeric type.
+- **Price per square meter (price_m2)**: Calculates the price per square meter.
+- **Year built (year_built)**: Extracts only the last 4 digits of the year and converts to numeric type.
+- **House age (house_age)**: Calculates the age of the house relative to the current year.
+- **Energy label (energy_label)**: Extracts the relevant part of the energy label.
+- **Heating (heating)**: Standardizes descriptions of the heating type.
+- **Parking (has_parking)**: Determines if the property has parking based on the description.
+- **Exteriors (has_balcony, has_garden, surrounding)**: Identifies if the property has a balcony and garden, and categorizes the surrounding environment.
+- **House type (house_type), House ID (house_id), Listing date (date_list), Province (provincie)**: Extraction of these pieces of information from the URLs.
+- **Layout (num_of_floors, located_floor, num_of_rooms, num_of_bedrooms, num_of_bathrooms, num_of_toilets)**: Extracts information about the property layout and cleans associated values. 
 - **Addresses and Zip codes**: Cleans addresses, extracts complete zip codes, and obtains geographical coordinates by using **Geopy**.
 
 
