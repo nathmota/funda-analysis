@@ -52,7 +52,7 @@ Then, every 50 pages (or 750 entries), the script scrapes and records the data i
 [See the provinces results.](https://www.funda.nl/koop/bladeren/). 
 
 ![Search results](figures/fig1.png)
-![Search results](figures/666.png)
+![Search results](figures/fig2.png)
 
 
 
