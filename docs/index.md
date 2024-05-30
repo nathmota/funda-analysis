@@ -148,9 +148,9 @@ It removes rows with **missing values** in essential columns, **eliminates dupli
 
 ### Concatenating
 Finally, another script concatenates the chunks of each province into a file per province and then concatenates all the province files into a single CSV file.
+The final processed file contains 53,931 entries and 18,7 MB in size.
 
-## Moving to Power BI
-sdf
+## Exploratory Data Analysis and Visualization
 
 ## Table of Contents
 
