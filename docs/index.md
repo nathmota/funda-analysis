@@ -100,27 +100,16 @@ You can also check it up on [raw data](../data/raw/). It’s possible to see tha
 And so, the following provinces CSV files were generated. The number corresponds to the quantity of listings returned:
 
 Drenthe - 1912 
-
 Groningen - 1946
-
 Flevoland - 2161
-
 Friesland - 2280
-
 Zeeland - 3033
-
 Limburg - 4095
-
 Utrecht - 4146
-
 Overijssel - 4305
-
 Gelderland - 7410
-
 Zuid Holland - 9990
-
 Noord Brabant - 10004
-
 Noord Holland - 10004
 
 
