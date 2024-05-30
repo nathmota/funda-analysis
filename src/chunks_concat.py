@@ -2,8 +2,8 @@ import os
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder
 
-raw_folder_path = '/home/nathalia/Projects/funda-analysis/src/data/raw/'
-processed_folder_path = '/home/nathalia/Projects/funda-analysis/src/data/processed/'
+raw_folder_path = 'my_path/funda-analysis/data/raw/'
+processed_folder_path = 'my_path/funda-analysis/data/processed/'
 chunk_folder_path = f'{raw_folder_path}chunks/'
 provincie_folders = [f.path for f in os.scandir(chunk_folder_path) if f.is_dir()]
 

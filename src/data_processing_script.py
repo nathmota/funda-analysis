@@ -9,9 +9,9 @@ from funda_scraper.config.core import config
 import os
 
 COLUMNS_TO_DROP = ['photo', 'descrip', 'log_id', 'insulation', 'ownership', 'building_type', 'last_ask_price_m2', 'date_list', 'listed_since', 'kind_of_house', 'last_ask_price', 'living_area']
-UNMISSABLE_COLUMNS = ['url', 'price', 'address','listed_since', 'zip_code', 'size', 'year', 'layout','city']    # cannot have missing values
+UNMISSABLE_COLUMNS = ['url', 'price', 'address','listed_since', 'zip_code', 'size', 'year', 'layout','city']    # cannot contain missing values
 provincies = ["provincie-drenthe", "provincie-groningen", "provincie-flevoland", "provincie-friesland", "provincie-zeeland", "provincie-limburg", "provincie-utrecht", "provincie-overijssel","provincie-gelderland","provincie-noord-brabant","provincie-noord-holland","provincie-zuid-holland"]
-raw_folder_path = '/home/nathalia/Projects/funda-analysis/src/data/raw/'
+raw_folder_path = 'my_path/funda-analysis/data/raw/'
 chunk_folder = f'{raw_folder_path}chunks/'
 
 for provincie in provincies:
@@ -20,7 +20,7 @@ for provincie in provincies:
     provincie_folder = f'{chunk_folder}{provincie}/'
     os.makedirs(chunk_folder, exist_ok=True)  # Create folder if not exists
     
-    #pre_df = pd.read_csv(f'/home/nathalia/Projects/funda/data/{provincie}.csv') 
+    #pre_df = pd.read_csv(f'my_path/funda/data/{provincie}.csv') 
     pre_df = pd.read_csv(f'{raw_folder_path}{provincie}.csv')
 
     def general_cleaning(df):

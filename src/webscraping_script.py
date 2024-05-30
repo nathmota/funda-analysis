@@ -3,7 +3,7 @@ import pandas as pd
 import os
 
 
-raw_folder_path = '/home/nathalia/Projects/funda-analysis/src/data/raw/'  
+raw_folder_path = 'my_path/funda-analysis/data/raw/'  
 provincies = ["provincie-drenthe", "provincie-groningen", "provincie-flevoland", "provincie-friesland", "provincie-zeeland", "provincie-limburg", "provincie-utrecht", "provincie-overijssel","provincie-gelderland","provincie-noord-brabant","provincie-noord-holland","provincie-zuid-holland"]
 want_to = "buy"
 find_past = False
