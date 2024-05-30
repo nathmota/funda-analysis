@@ -46,7 +46,7 @@ To fetch the data without any preprocessing. I decided to do all the preprocessi
 
 Although searching by province may return 12,000 results, for instance, Funda only makes a maximum of 666 pages accessible, as shown below. This equates to 9,990 entries, as each page contains 15 listings.
 
-Then, every 50 pages (or 750 entries), the script scrapes and records the data into a csv regarding each province.
+Then, every 50 pages (or 750 entries), the script scrapes and records the data into a CSV regarding each province.
 
 
 [See the provinces results.](https://www.funda.nl/koop/bladeren/). 
@@ -60,7 +60,7 @@ Then, every 50 pages (or 750 entries), the script scrapes and records the data i
 
 The data were collected on the 10th and 11th of April, 2024, which means that the dataset for this case study includes all the housing property listings **available** for sale during **that period**.
 
-The raw scraped dataset contains following columns:
+The raw scraped dataset contains the following columns:
 
 1. url
 2. price
@@ -95,23 +95,32 @@ And they look like this:
 
 ![raw data](figures/raw1.png)
 
-You can also check it up on [raw data](/data/raw/).
+You can also check it up on [raw data](/data/raw/). It’s possible to see that it is going to take a lot of work.
 
-It’s possible to see that it is going to take a lot of work.
-
-And so, the following province csv files were generated. The number corresponds to the quantity of listings returned:
+And so, the following province CSV files were generated. The number corresponds to the quantity of listings returned:
 
 Drenthe - 1912 
+
 Groningen - 1946
+
 Flevoland - 2161
+
 Friesland - 2280
+
 Zeeland - 3033
+
 Limburg - 4095
+
 Utrecht - 4146
+
 Overijssel - 4305
+
 Gelderland - 7410
+
 Zuid Holland - 9990
+
 Noord Brabant - 10004
+
 Noord Holland - 10004
 
 
@@ -123,7 +132,38 @@ The raw dataset then starts with 61286 entries and 1.1 GB in size.
 
 ## Processing the Data
 
-[Data processing script](/src/data_processing_script.py)
+[Data processing script](/src/data_processing_script.py) using Pandas for Python.
+
+### Using chunks
+As the cleaning process progressed and became more complex, once again, there was a need to adopt a measure to maintain the already processed data and avoid losses due to frequent interruptions in the executions with each unexpected occurrence. The process for each province was then partitioned into chunks of 300 instances and written in separate CSV files.
+
+
+### Loading the initial data:
+
+ The script loads raw data from CSV files corresponding to different provinces of the Netherlands from specified folders.
+
+### General cleaning: 
+
+It removes rows with **missing values** in essential columns, **eliminates duplicate** records and addresses, and **drops columns** that won't be used later.
+
+### Cleaning specific features:
+
+    - **Size (size_m2)**: Removes unwanted characters, converts to numeric type, and renames the column.
+    - **Price (price)**: Removes unwanted characters and converts to numeric type.
+    - **Price per square meter (price_m2)**: Calculates the price per square meter.
+    - **Year built (year_built)**: Extracts only the last 4 digits of the year and converts to numeric type.
+    - **House age (house_age)**: Calculates the age of the house relative to the current year.
+    - **Energy label (energy_label)**: Extracts the relevant part of the energy label.
+    - **Heating (heating)**: Standardizes descriptions of the heating type.
+    - **Parking (has_parking)**: Determines if the property has parking based on the description.
+    - **Exteriors (has_balcony, has_garden, surrounding)**: Identifies if the property has a balcony and garden, and categorizes the surrounding environment.
+    - **House type (house_type), House ID (house_id), Listing date (date_list), Province (provincie)**: Extraction of these pieces of information from the URLs.
+    - **Layout (num_of_floors, located_floor, num_of_rooms, num_of_bedrooms, num_of_bathrooms, num_of_toilets)**: Extracts information about the property layout and cleans associated values.   
+    
+ 
+- **Addresses and Zip codes**: Cleans addresses, extracts complete zip codes, and obtains geographical coordinates by using **Geopy**.
+
+
 
 ## Table of Contents
 
