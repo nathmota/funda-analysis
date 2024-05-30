@@ -31,7 +31,7 @@ Steps:
 3. Open the web scraping script, set the arguments as your needs, and your file path.
    For this project, the follow arguments has been used:
    ```bash
-    raw_folder_path = 'project_path/funda-analysis/src/data/raw/'  
+    raw_folder_path = "project_path/funda-analysis/data/raw/"
     provincies = ["provincie-drenthe", "provincie-groningen", "provincie-flevoland", "provincie-friesland", "provincie-zeeland", "provincie-limburg", "provincie-utrecht", "provincie-overijssel","provincie-gelderland","provincie-noord-brabant","provincie-noord-holland","provincie-zuid-holland"]
     want_to = "buy"
     find_past = False
@@ -68,4 +68,4 @@ Steps:
 ## Results
 For the results and visualizations see the [full documentation](docs/index.md).
 
-![Report_cover_page](docs/figures/cover_page.png)
+![Report_cover_page](docs/figures/cover-page.png)
