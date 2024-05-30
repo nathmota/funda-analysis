@@ -41,7 +41,7 @@ Although the search by province may return 15.000 results, for instance, Funda o
 
 [See the provinces results.](https://www.funda.nl/koop/bladeren/). 
 
-![Search results](/docs/figures/fig1.png)
+![Search results](/figures/fig1.png)
 
 
 Then, every 50 pages (or 750 entries), the script scrapes and records the data into a province csv.
@@ -83,7 +83,7 @@ The raw scraped content contains following information:
 
 And they look like this:
 
-![raw data](/docs/figures/raw1.png)
+![raw data](/figures/raw1.png)
 
 You can also check it up on [raw data](/data/raw/).
 
