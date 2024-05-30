@@ -20,7 +20,7 @@ According Funda's Terms and Conditions, scraping its website is only allowed for
 
 ## Collecting the Data
 
-[Webscraping script:](/src/webscraping_script.py)
+[Webscraping script:](../src/webscraping_script.py)
 
 The data were scraped from Funda using [FundaScraper](https://github.com/whchien/funda-scraper) for Python.
 There are several different sets of arguments that can generate diverse searches. For this project, the following arguments have been used:
