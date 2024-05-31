@@ -1,6 +1,6 @@
 # Funda Properties Listings Data Analysis 
 
-This project involves collecting, processing and analyzing data of the Dutch real estate market, based on properties listings available on [Funda](www.funda.nl) website.
+This project involves collecting, processing and analyzing data of the Dutch real estate market, based on properties listings available on [Funda]([www.funda.nl](https://www.funda.nl/)) website.
 
 For more details, see the [full documentation](docs/index.md).
 
