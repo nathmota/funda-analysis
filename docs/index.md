@@ -58,7 +58,7 @@ Then, every 50 pages (or 750 entries), the script scrapes and records the data i
 
 ### Data Overview
 
-The data were collected on the 10th and 11th of April, 2024, which means that the dataset for this case study includes all the housing property listings **available** for sale during **that period**.
+The data were collected on the 10th of April, 2024, which means that the dataset for this case study includes all the housing property listings **available** for sale during **that period**.
 
 The raw scraped dataset contains the following columns:
 
