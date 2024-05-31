@@ -2,7 +2,7 @@
 
 This project involves collecting, processing and analyzing data of the Dutch real estate market, based on properties listings available on [Funda](https://www.funda.nl/) website.
 
-For more details, see the [full documentation](docs/index.md).
+For more details, see the [full documentation](https://nathmota.github.io/funda-analysis/).
 
 ## Repository Structure
 - `data/`: Raw, processed and external data
