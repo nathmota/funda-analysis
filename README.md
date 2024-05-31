@@ -1,5 +1,7 @@
 # Funda Properties Listings Data Analysis 🏡
 
+![Report preview](docs/figures/report_preview.png)
+
 This project involves collecting, processing and analyzing data of the Dutch real estate market, based on properties listings available on [Funda](https://www.funda.nl/) website.
 
 For more details, see the [full documentation](https://nathmota.github.io/funda-analysis/).
