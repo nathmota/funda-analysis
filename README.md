@@ -68,6 +68,4 @@ Steps:
     ```
 
 ## Results
-For the results and visualizations see the [full documentation](docs/index.md).
-
-![Report_cover_page](docs/figures/cover-page.png)
+For the results and visualizations see the [full documentation](https://nathmota.github.io/funda-analysis/).
