@@ -1,4 +1,4 @@
-# Funda Properties Listings Data Analysis 
+# Funda Properties Listings Data Analysis 🏡
 
 This project involves collecting, processing and analyzing data of the Dutch real estate market, based on properties listings available on [Funda](https://www.funda.nl/) website.
 
