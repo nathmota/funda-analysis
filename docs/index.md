@@ -228,7 +228,7 @@ The second dashboard displays the occurrence of some features among the properti
 
 ### 6. Provinces
 
-------
+-------
 For outlier detection, the Z-score method was applied on the property prices. Results greater than 3 were considered outliers, which in the dataset reflect prices up to 1,825,000 euros. Then, **782** were considered outliers, while **53,117** were considered normal.
 
 ## Table of Contents
