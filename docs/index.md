@@ -154,11 +154,31 @@ The final processed file contains 53,931 entries and 18,7 MB in size.
 
 ## Exploratory Data Analysis (EDA) and Visualization
 
-The exploratory analysis as well as the visualizations are built using ***Power BI***. The processed data CSV file is loaded, and techniques such as type adjustment, column splitting and renaming, and creating columns with value ranges are applied in the Power Query editor.
+The exploratory data analysis, as well as the visualizations, are built using ***Power BI***.
 
-![Applied steps](figures/applied_steps.png)
+### Transformation
+
+The processed data CSV file is loaded, and techniques such as type adjustment, column splitting and renaming, and creating columns with value ranges are applied in the Power Query editor.
+
+![Applied steps](figures/applied_steps2.png)
+
+### Modeling
 
 At this stage, a new data source is also incorporated: a table with some of the largest and main cities in the Netherlands along with their respective populations, which will be used in future analyses. 
+Thus, the Funda and LargestCities tables are related through the column 'city'.
+
+![Applied steps](figures/model.png)
+
+### Measures
+
+Some measures were defined using DAX (Data Analysis Expressions) to support the analyses:
+
+![Applied steps](figures/Measures.png)
+
+### EDA
+
+### Visualizations and Results
+
 
 
 ------
