@@ -165,15 +165,15 @@ The processed data CSV file is loaded, and techniques such as type adjustment, c
 ### Modeling
 
 At this stage, a new data source is also incorporated: a table with some of the largest and main cities in the Netherlands along with their respective populations, which will be used in future analyses. 
-Thus, the Funda and LargestCities tables are related through the column 'city'.
+Thus, the "Funda" and "LargestCities" tables are related through the column "city".
 
-![Applied steps](figures/model.png)
+![model](figures/model.png)
 
 ### Measures
 
 Some measures were defined using DAX (Data Analysis Expressions) to support the analyses:
 
-![Applied steps](figures/Measures.png)
+![measures](figures/Measures.png)
 
 ### EDA
 
