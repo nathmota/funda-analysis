@@ -129,7 +129,9 @@ The script loads raw data from CSV files corresponding to different provinces of
 
 ### General cleaning: 
 
-It removes rows with **missing values** in essential columns, **eliminates duplicate** records and addresses, and **drops columns** that won't be used later.
+- It removes rows with **missing values** in essential columns, those whose absence would make most analyses impossible. Other blank data were accepted and left blank, as they are assumed to be Missing Completely at Random (MCAR). 
+- **Eliminates duplicate** identical records and also identical addresses.
+- **Drops columns** that won't be used later.
 
 ### Cleaning specific features:
 
@@ -146,11 +148,21 @@ It removes rows with **missing values** in essential columns, **eliminates dupli
 - **Layout (num_of_floors, located_floor, num_of_rooms, num_of_bedrooms, num_of_bathrooms, num_of_toilets)**: Extracts information about the property layout text content and cleans associated values. 
 - **Addresses and Zip codes**: Cleans addresses, extracts complete zip codes, and obtains geolocation (geographical coordinates) by using **Geopy**.
 
-### Concatenating
-Finally, another script concatenates the chunks of each province into a file per province and then concatenates all the province files into a single CSV file.
+### Concatenating chunks and files
+Finally, another script concatenates the chunks of each province into a file per province and then, concatenates all the province files into a single CSV file.
 The final processed file contains 53,931 entries and 18,7 MB in size.
 
-## Exploratory Data Analysis and Visualization
+## Exploratory Data Analysis (EDA) and Visualization
+
+The exploratory analysis as well as the visualizations are built using ***Power BI***. The processed data CSV file is loaded, and techniques such as type adjustment, column splitting and renaming, and creating columns with value ranges are applied in the Power Query editor.
+
+![Applied steps](figures/applied_steps.png)
+
+At this stage, a new data source is also incorporated: a table with some of the largest and main cities in the Netherlands along with their respective populations, which will be used in future analyses. 
+
+
+------
+For outlier detection, the Z-score method was applied on the property prices. Results greater than 3 were considered outliers, which in the dataset reflect prices up to 1,825,000 euros. Then, **782** were considered outliers, while **53,117** were considered normal.
 
 ## Table of Contents
 
