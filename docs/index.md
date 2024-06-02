@@ -181,14 +181,52 @@ Some measures were defined using DAX (Data Analysis Expressions) to support the 
 
 1. Geo Distribution
 
-At the first page it's possible to see how the properties listings are distributed within the country and the number of listings of each province as well. They are:
+At the first page it's possible to see how the properties listings are distributed within the country and the number of listings of each province as well. 
 
 ![pg1](reports/pg1.png)
 
-It is 53,117 listings over 2026 cities.
+They are 53,117 listings over 2026 cities.
 
 Zuid-Holland, Noord-Brabant, and Noord-Holland are the provinces with the highest number of property listings for sale, accounting for approximately 50% of the country's total supply.
 
+2. Properties Overview
+
+![pg2](reports/pg2.png)
+
+The second dashboard displays the occurrence of some features among the properties.
+
+- The vast majority of houses (76.05%) cost between 250K and 270K euros
+- Amsterdam, Rotterdam, Den Haag, Utrecht, and Almere are the cities with the highest supply of properties
+- Two-thirds of residential properties are houses, and one-third are apartments
+- Most of them (68.21%) do not have their own parking
+- As for the presence of a garden, there is a balance, with 51.66% having a garden and 48.34% not having it
+- As for balconies, only 27.89% of properties have it
+- On this page, it is also possible to filter by cities
+
+3. Properties Rooms
+
+![pg3](reports/pg3.png)
+   
+- There is a trend of increasing property prices in relation to the number of bedrooms and bathrooms
+- The majority of houses (66.58%) have between 3, 4, and 5 rooms, 2 to 3 bedrooms, and 1 bathroom
+- Surprisingly, there are houses with up to 18 bedrooms for less than 1.5 million euros
+- On this page, it is also possible to filter by cities
+
+4. Size & Price Stats
+
+![pg4](reports/pg4.png)
+
+- Regarding size, around 70% of properties measure between 50 and 150 m²
+- The overall average size of houses in the country is 131 m²
+- The overall average price is 529,688 euros
+- The median is 450,000 euros
+- With a standard deviation of 280,159 euros, it can be concluded that 80% of properties fall within the range of 250K and 810K euros
+- Through the scatter plot, a clearer clustering can be observed in areas up to 200m² on the X-axis and 1M euros on the Y-axis
+- On this page, it is also possible to filter by cities
+
+5. Age & Size per m² Stats
+
+6. 
 
 ------
 For outlier detection, the Z-score method was applied on the property prices. Results greater than 3 were considered outliers, which in the dataset reflect prices up to 1,825,000 euros. Then, **782** were considered outliers, while **53,117** were considered normal.
