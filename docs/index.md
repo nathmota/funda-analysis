@@ -175,8 +175,6 @@ Some measures were defined using DAX (Data Analysis Expressions) to support the 
 
 ![measures](figures/Measures.png)
 
-
-
 ## Visualizations and Results
 
 ### 1. Geo Distribution
@@ -189,7 +187,7 @@ They are 53,117 listings over 2026 cities.
 
 Zuid-Holland, Noord-Brabant, and Noord-Holland are the provinces with the highest number of property listings for sale, accounting for approximately 50% of the country's total supply.
 
-2. Properties Overview
+### 2. Properties Overview
 
 ![pg2](reports/pg2.png)
 
@@ -203,7 +201,7 @@ The second dashboard displays the occurrence of some features among the properti
 - As for balconies, only 27.89% of properties have it
 - On this page, it is also possible to filter by cities
 
-3. Properties Rooms
+### 3. Properties Rooms
 
 ![pg3](reports/pg3.png)
    
@@ -212,7 +210,7 @@ The second dashboard displays the occurrence of some features among the properti
 - Surprisingly, there are houses with up to 18 bedrooms for less than 1.5 million euros
 - On this page, it is also possible to filter by cities
 
-4. Size & Price Stats
+### 4. Size & Price Stats
 
 ![pg4](reports/pg4.png)
 
@@ -224,9 +222,11 @@ The second dashboard displays the occurrence of some features among the properti
 - Through the scatter plot, a clearer clustering can be observed in areas up to 200m² on the X-axis and 1M euros on the Y-axis
 - On this page, it is also possible to filter by cities
 
-5. Age & Size per m² Stats
+### 5. Age & Size per m² Stats
 
-6. 
+![pg5](reports/pg5.png)
+
+### 6. 
 
 ------
 For outlier detection, the Z-score method was applied on the property prices. Results greater than 3 were considered outliers, which in the dataset reflect prices up to 1,825,000 euros. Then, **782** were considered outliers, while **53,117** were considered normal.
