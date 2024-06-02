@@ -179,6 +179,29 @@ Some measures were defined using DAX (Data Analysis Expressions) to support the 
 
 ### Visualizations and Results
 
+1. Geo Distribution
+
+![vid2](rec2 - Made with Clipchamp.mp4)
+
+At the first page it's possible to see how the properties listings are distributed within the country and the number of listings of each province as well. They are:
+
+```Zuid-Holland: 9203
+Noord-Brabant: 8845
+Noord-Holland: 8818
+Gelderland: 6317
+Overijssel: 3684
+Utrecht: 3498
+Limburg: 3398
+Zeeland: 2428
+Friesland: 1853
+Groningen: 1705
+Flevoland: 1686
+Drenthe: 1682
+```
+
+**Total**: 53,117 listings over 2026 cities.
+
+Zuid-Holland, Noord-Brabant, and Noord-Holland are the provinces with the highest number of property listings for sale, accounting for approximately 50% of the country's total supply.
 
 
 ------
