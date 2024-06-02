@@ -175,11 +175,11 @@ Some measures were defined using DAX (Data Analysis Expressions) to support the 
 
 ![measures](figures/Measures.png)
 
-### EDA
 
-### Visualizations and Results
 
-1. Geo Distribution
+## Visualizations and Results
+
+### 1. Geo Distribution
 
 At the first page it's possible to see how the properties listings are distributed within the country and the number of listings of each province as well. 
 
