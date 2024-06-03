@@ -68,7 +68,7 @@ To run the Python scripts, you'll need Python 3 and the dependencies listed on t
     ```bash
     python src/chunks_concat.py
     ```
-9. Open the Power BI project (`docs/reports/funda_report.pbix`) on the Power BI Desktop application, loading the processed data for analysis and visualization. The default path for the processed data is `data/preprocessed/processed_data.csv`.
+9. Open the Power BI project (`docs/reports/funda_report.pbix`) on the Power BI Desktop application, loading the processed data for analysis and visualization. If no personalization was made to change that, you'll find the processed data to be loaded on the Power BI Desktop application stored on its default location, at `data/preprocessed/processed_data.csv`.
 
 ## Results
-For checking an offline snapshot of the visualizations the results I've produced in my analyzis, see the [full documentation](https://nathmota.github.io/funda-analysis/).
+For checking an offline snapshot of the visualizations and the results I've produced in my analyzis, see the [full documentation](https://nathmota.github.io/funda-analysis/).
