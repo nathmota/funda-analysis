@@ -44,7 +44,7 @@ Steps:
     ```
    If need, check [Funda Scraper](https://github.com/whchien/funda-scraper) documentation and/or [Funda](https://www.funda.nl/) website.
    
-4. Run the web scraping script to collect data:
+4. Run the [web scraping](src/webscraping_script.py) script to collect data:
     ```bash
     python src/webscraping_script.py
     ```
