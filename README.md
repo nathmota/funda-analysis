@@ -4,6 +4,16 @@
 
 This project involves collecting, processing and analyzing data of the Dutch real estate market, based on properties listings available on [Funda](https://www.funda.nl/) website.
 
+The ETL process is carried out as follows:
+- Extraction: via Web Scraping using [Funda Scraper](https://github.com/whchien/funda-scraper)
+- Cleaning/pre-processing: executed in chunks, using:
+    - Numpy/Pandas for cleaning
+    - Beautiful Soup for scraping some additional data directly from Funda
+    - Geopy for obtaining geolocations
+- Transformation:
+  Power BI for Exploratory Data Analysis and generating visualizations
+
+
 For more details, see the [full documentation](https://nathmota.github.io/funda-analysis/).
 
 ## Repository Structure
@@ -30,7 +40,7 @@ Steps:
     ```bash
     pip install -r requirements.txt
     ```
-3. Open the web scraping script, set the arguments as your needs, and your file path.
+3. Open the [Funda Scraper](https://github.com/whchien/funda-scraper), set the arguments as your needs, and your file path.
    For this project, the follow arguments has been used:
    ```bash
     raw_folder_path = "project_path/funda-analysis/data/raw/"
@@ -44,24 +54,24 @@ Steps:
     ```
    If need, check [Funda Scraper](https://github.com/whchien/funda-scraper) documentation and/or [Funda](https://www.funda.nl/) website.
    
-4. Run the [web scraping](src/webscraping_script.py) script to collect data:
+4. Run the web scraping script to collect data:
     ```bash
     python src/webscraping_script.py
     ```
-5. Open the data processing script, set the arguments as your needs, and your file path;
+5. Open the [data processing script](src/data_processing_script.py), set the arguments as your needs, and your file path;
  
 6. Run the data processing script:
     ```bash
     python src/data_processing_script.py
     ```
-7. Open the chunks concatenator script, set the arguments as your needs, and your file path;
+7. Open the [chunks concatenator script](src/chunks_concat.py), set the arguments as your needs, and your file path;
    `src/chunks_concat.py`
 
 8. Run the chunks concatenator script:
     ```bash
     python src/chunks_concat.py
     ```
-9. Open the .pbix file and load the processed data for analysis and visualization:
+9. Open the .pbix file on Power BI Desktop and load the processed data for analysis and visualization:
     ```bash
     docs/reports/funda_report.pbix
     data/preprocessed/processed_data.csv
