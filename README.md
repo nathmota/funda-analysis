@@ -2,32 +2,31 @@
 
 ![Report preview](docs/figures/report_preview.png)
 
-This project involves collecting, processing and analyzing data of the Dutch real estate market, based on properties listings available on [Funda](https://www.funda.nl/) website.
+This project consisted of **collecting**, **processing** and **analyzing** data of the Dutch real estate market, based on properties listings available on [Funda](https://www.funda.nl/) website. The ETL process carried out within it made use of Python scripts and the Power BI application as follows:
+- Python scripts part:
+    - **E**xtraction: via Web Scraping using the [Funda Scraper](https://github.com/whchien/funda-scraper) module
+    - **T**ransformation (cleaning/pre-processing): executed in bite-size chunks, using:
+        - Numpy/Pandas for cleaning
+        - Beautiful Soup for dataset enrichment, scraping some additional data directly from Funda
+        - Geopy for obtaining geolocations
+- PowerBI part:
+    - **L**oad: (+ additional transformation): Made on Power BI for Exploratory Data Analysis and for generating visualizations
 
-The ETL process is carried out as follows:
-- Extraction: via Web Scraping using [Funda Scraper](https://github.com/whchien/funda-scraper)
-- Cleaning/pre-processing: executed in chunks, using:
-    - Numpy/Pandas for cleaning
-    - Beautiful Soup for scraping some additional data directly from Funda
-    - Geopy for obtaining geolocations
-- Transformation:
-  Power BI for Exploratory Data Analysis and generating visualizations
+In this repository, you find the Python scripts along with the Power BI project. For more details, see the [full documentation](https://nathmota.github.io/funda-analysis/).
 
+## This Repository Structure
 
-For more details, see the [full documentation](https://nathmota.github.io/funda-analysis/).
-
-## Repository Structure
-- `data/`: Raw, processed and external data
-- `src/`: Web scraping and data processing scripts.
-- `docs/`: Complete project documentation and results, reports and figures.
+- `data/`: Used to store raw, processed and external data
+- `src/`: Python scrips used fo web scraping and data cleaning/pre-processing.
+- `docs/`: Github page containing the complete project documentation, results, reports and figures.
 - `README.md`: This file.
 - `requirements.txt`: Project dependencies list.
 
 ## Run the Project
-For running this project, you have to be installed: Python3, the dependencies on requirements.txt, and Power BI Desktop.
-Steps:
 
-1. Clone the repository:
+To run the Python scripts, you'll need Python 3 and the dependencies listed on the `requirements.txt`. For loading the Power BI project (`.pbix` file), you'll need the Power BI Desktop application. The process, from start to end to run it can be executed as follows:
+
+1. Clone this repository:
     ```bash
     # Go to your project diretory
     cd project_local_path/projects
@@ -36,12 +35,11 @@ Steps:
     # Go into the repository
     $ cd funda-analysis
     ```
-2. Install the dependencies using pip or you preferred virtual environment:
+2. Install the dependencies using pip (directly or from within you preferred virtual environment):
     ```bash
     pip install -r requirements.txt
     ```
-3. Open the [Funda Scraper](https://github.com/whchien/funda-scraper), set the arguments as your needs, and your file path.
-   For this project, the follow arguments has been used:
+3. **(optional)** Edit the parameters used for web scraping as you need (on the `src/webscraping_script.py` file). The default parameters used for this project were following:
    ```bash
     raw_folder_path = "project_path/funda-analysis/data/raw/"
     provincies = ["provincie-drenthe", "provincie-groningen", "provincie-flevoland", "provincie-friesland", "provincie-zeeland", "provincie-limburg", "provincie-utrecht", "provincie-overijssel","provincie-gelderland","provincie-noord-brabant","provincie-noord-holland","provincie-zuid-holland"]
@@ -52,30 +50,25 @@ Steps:
     entries_per_page = 15
     raw_data = True
     ```
-   If need, check [Funda Scraper](https://github.com/whchien/funda-scraper) documentation and/or [Funda](https://www.funda.nl/) website.
+   As those parameters are directly infeed into the Funda Scraper module on its usage, you can consult [its documentation](https://github.com/whchien/funda-scraper) and/or [Funda](https://www.funda.nl/) website to better understand how to adapt it to your use case.
    
 4. Run the web scraping script to collect data:
     ```bash
     python src/webscraping_script.py
     ```
-5. Open the [data processing script](src/data_processing_script.py), set the arguments as your needs, and your file path;
+5. **(optional)** Edit the data processing script (`src/data_processing_script.py`) to set on it different parameters for the processing step, including file paths (from where files are read and written to);
  
 6. Run the data processing script:
     ```bash
     python src/data_processing_script.py
     ```
-7. Open the [chunks concatenator script](src/chunks_concat.py), set the arguments as your needs, and your file path;
-   `src/chunks_concat.py`
+7. **(optional)** Edit the chunks concatenator script (`src/chunks_concat.py`), setting different parameters, including some file paths (again to define from where files are read and written to).
 
 8. Run the chunks concatenator script:
     ```bash
     python src/chunks_concat.py
     ```
-9. Open the .pbix file on Power BI Desktop and load the processed data for analysis and visualization:
-    ```bash
-    docs/reports/funda_report.pbix
-    data/preprocessed/processed_data.csv
-    ```
+9. Open the Power BI project (`docs/reports/funda_report.pbix`) on the Power BI Desktop application, loading the processed data for analysis and visualization. The default path for the processed data is `data/preprocessed/processed_data.csv`.
 
 ## Results
-For the results and visualizations see the [full documentation](https://nathmota.github.io/funda-analysis/).
+For checking an offline snapshot of the visualizations the results I've produced in my analyzis, see the [full documentation](https://nathmota.github.io/funda-analysis/).
