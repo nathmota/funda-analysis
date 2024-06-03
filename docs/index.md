@@ -148,13 +148,16 @@ The script loads raw data from CSV files corresponding to different provinces of
 - **Layout (num_of_floors, located_floor, num_of_rooms, num_of_bedrooms, num_of_bathrooms, num_of_toilets)**: Extracts information about the property layout text content and cleans associated values. 
 - **Addresses and Zip codes**: Cleans addresses, extracts complete zip codes, and obtains geolocation (geographical coordinates) by using **Geopy**.
 
+- For outlier detection, the Z-score method was applied on the property prices. Results greater than 3 were considered outliers, which in the dataset reflect prices up to 1,900,000 euros.
+- Then, **782** were considered outliers, while **53,117** were considered normal.
+
 ### Concatenating chunks and files
 Finally, another script concatenates the chunks of each province into a file per province and then, concatenates all the province files into a single CSV file.
 The final processed file contains 53,931 entries and 18,7 MB in size.
 
 ## Exploratory Data Analysis (EDA) and Visualization
 
-The exploratory data analysis, as well as the visualizations, are built using ***Power BI***.
+The exploratory data analysis, as well as the visualizations, are built using ***Power BI***, in order to understand the data distribution, patterns, relationships and generate insights.
 
 ### Transformation
 
@@ -183,9 +186,9 @@ At the first page it's possible to see how the properties listings are distribut
 
 ![pg1](reports/pg1.png)
 
-They are 53,117 listings over 2026 cities.
+They are 53,929 listings over 2030 cities.
 
-Zuid-Holland, Noord-Brabant, and Noord-Holland are the provinces with the highest number of property listings for sale, accounting for approximately 50% of the country's total supply.
+Zuid-Holland, Noord-Brabant, and Noord-Holland are the provinces with the **highest number of property listings** for sale, accounting for approximately 50% of the country's total supply.
 
 ### 2. Properties Overview
 
@@ -193,21 +196,22 @@ Zuid-Holland, Noord-Brabant, and Noord-Holland are the provinces with the highes
 
 The second dashboard displays the occurrence of some features among the properties.
 
-- The vast majority of houses (76.05%) cost between 250K and 270K euros
+- The vast majority of houses (74.91%) cost between 250K and 750K euros
 - Amsterdam, Rotterdam, Den Haag, Utrecht, and Almere are the cities with the highest supply of properties
-- Two-thirds of residential properties are houses, and one-third are apartments
-- Most of them (68.21%) do not have their own parking
-- As for the presence of a garden, there is a balance, with 51.66% having a garden and 48.34% not having it
-- As for balconies, only 27.89% of properties have it
-- On this page, it is also possible to filter by cities
+- Approximately two-thirds of residential properties are houses, and one-third are apartments as shown in the pie chart
+- Most of them (67.77%) do not have their own parking
+- As for the presence of a garden, there is a balance, with 48.02% having a garden and 51.98% not having it
+- As for balconies, only 28.27% of properties have it
+- The treemap indicates the proportion of the energy labels among the properties as well as their respective types of heating
+- The bar chart show us the main surroundings of the properties
+- On this page, it is also possible to see the results by city by using the filters
 
 ### 3. Properties Rooms
 
 ![pg3](reports/pg3.png)
    
-- There is a trend of increasing property prices in relation to the number of bedrooms and bathrooms
-- The majority of houses (66.58%) have between 3, 4, and 5 rooms, 2 to 3 bedrooms, and 1 bathroom
-- Surprisingly, there are houses with up to 18 bedrooms for less than 1.5 million euros
+- The line charts indicates a trend of increasing property prices in relation to the number of bedrooms and bathrooms
+- The majority of houses (66.57%) have between 3, 4, and 5 rooms, 2 to 3 bedrooms, and 1 bathroom
 - On this page, it is also possible to filter by cities
 
 ### 4. Size & Price Stats
@@ -216,35 +220,69 @@ The second dashboard displays the occurrence of some features among the properti
 
 - Regarding size, around 70% of properties measure between 50 and 150 m²
 - The overall average size of houses in the country is 131 m²
-- The overall average price is 529,688 euros
+- The overall average price is 529,783.60 euros
 - The median is 450,000 euros
-- With a standard deviation of 280,159 euros, it can be concluded that 80% of properties fall within the range of 250K and 810K euros
-- Through the scatter plot, a clearer clustering can be observed in areas up to 200m² on the X-axis and 1M euros on the Y-axis
-- On this page, it is also possible to filter by cities
+- With a standard deviation of 280,298.67 euros, it can be concluded that 80% of properties fall within the range of 249K and 810K euros
+- Through the scatter plot, a clearer clustering can be observed in areas up to 250m² on the X-axis and 1M euros on the Y-axis
+- A boxplot presents the statistics of property prices in the country:
+  ```
+  Minimum value: 79,000 euros
+  Maximum value: 1,900,000 euros
+  Mean: 529,783.60 euros
+  Median: 450,000 euros
+  Standard deviation: 280,298.67 euros
+  Interquartile range: 294,000 euros
+  1st quartile: 345,000 euros
+  3rd quartile: 639,000 euros
+  ```
+  - On this page, it is also possible to filter by cities
 
 ### 5. Age & Size per m² Stats
 
 ![pg5](reports/pg5.png)
 
-### 6. Provinces
+- Regarding age, 57,78% of properties are less than 50 years old
+- The overall average age of houses in the country is 44.81 years old
+- The overall average price per square meter is 4,299.06 euros
+- The median is 3,992.00 euros
+- With a standard deviation of 1,666.63 euros, it can be concluded that 96.52% of properties fall within the range of 2.7K and 5.77K euros
+- Through the scatter plot, a clearer clustering can be observed in areas up to 140 years old on the X-axis and 10K euros on the Y-axis
+- On this page, it is also possible to filter by cities
 
--------
-For outlier detection, the Z-score method was applied on the property prices. Results greater than 3 were considered outliers, which in the dataset reflect prices up to 1,825,000 euros. Then, **782** were considered outliers, while **53,117** were considered normal.
 
-## Table of Contents
+### 6. Provinces Price & Price per m² Average
 
-- [Results](results.md)
-- [Figures](figures.md)
-- [Reports](reports.md)
+The same metrics from the previous boxplot presents now a comparison between the provinces:
 
-## Results
+![pg6](reports/pg6.png)
 
-To see detailed results and insights, visit [Results](results.md).
+Descrição do boxplot provincias
 
-## Figures
+Descrição do column chart
 
-To view the generated figures and graphs, visit [Figures](figures.md).
+### 7. Provinces Price per m² x Size Average
 
-## Reports
+Explicação do Provinces Price per m² x Size Average Bubble chart
+- On this page, it is also possible to filter by cities
 
-To read the complete reports, visit [Reports](reports.md).
+![pg7](reports/pg7.png)
+
+### 8. Price per m² Heat Map
+
+Explicação do heat map 
+
+![pg8](reports/pg8.png)
+
+### 9. Major Cities by Population
+
+Explicação do scatter chart
+
+![pg9](reports/pg9.png)
+
+### 10. Prices Map Navigation
+
+Explicação do bubbles map
+
+![pg10](reports/pg10.png)
+
+
