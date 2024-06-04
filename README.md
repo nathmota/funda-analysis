@@ -4,8 +4,8 @@
 
 This project consisted of **collecting**, **processing** and **analyzing** data of the Dutch real estate market, based on properties listings available on [Funda](https://www.funda.nl/) website. The ETL process carried out within it made use of Python scripts and the Power BI application as follows:
 - Python scripts part:
-    - **E**xtraction: via Web Scraping using the [Funda Scraper](https://github.com/whchien/funda-scraper) module
-    - **T**ransformation (cleaning/pre-processing): executed in bite-size chunks, using:
+    - **E**xtract: via Web Scraping using the [Funda Scraper](https://github.com/whchien/funda-scraper) module
+    - **T**ransform (cleaning/pre-processing): executed in bite-size chunks, using:
         - Numpy/Pandas for cleaning
         - Beautiful Soup for dataset enrichment, scraping some additional data directly from Funda
         - Geopy for obtaining geolocations
@@ -17,7 +17,7 @@ In this repository, you find the Python scripts along with the Power BI project.
 ## This Repository Structure
 
 - `data/`: Used to store raw, processed and external data
-- `src/`: Python scrips used fo web scraping and data cleaning/pre-processing.
+- `src/`: Python scripts used fo web scraping and data cleaning/pre-processing.
 - `docs/`: Github page containing the complete project documentation, results, reports and figures.
 - `README.md`: This file.
 - `requirements.txt`: Project dependencies list.
