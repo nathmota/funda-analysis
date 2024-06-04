@@ -20,7 +20,7 @@ According Funda's Terms and Conditions, scraping its website is only allowed for
 
 ## Collecting the Data
 
-[Webscraping script:](../src/webscraping_script.py)
+[Webscraping script](../src/webscraping_script.py)
 
 The data were scraped from Funda using [FundaScraper](https://github.com/whchien/funda-scraper) for Python.
 There are several different sets of arguments that can generate diverse searches. For this project, the following arguments have been used:
@@ -98,7 +98,7 @@ And they look like this:
 You can also check it up on [raw data](../data/raw/). It’s possible to see that it is going to take a lot of work.
 
 And so, the following provinces CSV files were generated. The number corresponds to the quantity of listings returned:
-
+```
 Drenthe - 1912 
 Groningen - 1946
 Flevoland - 2161
@@ -111,7 +111,7 @@ Gelderland - 7410
 Zuid Holland - 9990
 Noord Brabant - 10004
 Noord Holland - 10004
-
+```
 
 For some reason, Noord Holland and Noord Brabant have more than 9990 listings. I assumed they could be duplicates and would be treated accordingly during the processing step.
 
@@ -137,7 +137,7 @@ The script loads raw data from CSV files corresponding to different provinces of
 
 - **Size (size_m2)**: Removes unwanted characters, converts to numeric type, and renames the column.
 - **Price (price)**: Removes unwanted characters and converts to numeric type.
-- **Price per square meter (price_m2)**: Calculates the price per square meter.
+- **Price per square meter (price_m2)**: Calculates the price per square meter (m²).
 - **Year built (year_built)**: Extracts only the last 4 digits of the year and converts to numeric type.
 - **House age (house_age)**: Calculates the age of the house relative to the current year.
 - **Energy label (energy_label)**: Extracts the relevant part of the energy label.
@@ -148,7 +148,7 @@ The script loads raw data from CSV files corresponding to different provinces of
 - **Layout (num_of_floors, located_floor, num_of_rooms, num_of_bedrooms, num_of_bathrooms, num_of_toilets)**: Extracts information about the property layout text content and cleans associated values. 
 - **Addresses and Zip codes**: Cleans addresses, extracts complete zip codes, and obtains geolocation (geographical coordinates) by using **Geopy**.
 
-- For outlier detection, the Z-score method was applied on the property prices. Results greater than 3 were considered outliers, which in the dataset reflect prices up to 1,900,000 euros.
+- For outlier detection, the Z-score method was applied on the property prices. Results greater than 3 were considered outliers, which in the dataset reflect prices up to €1,900,000.
 - Then, **782** were considered outliers, while **53,117** were considered normal.
 
 ### Concatenating chunks and files
@@ -174,7 +174,7 @@ Thus, the "Funda" and "LargestCities" tables are related through the column "cit
 
 ### Measures
 
-Some measures were defined using DAX (Data Analysis Expressions) to support the analyses:
+A few measures were defined using DAX (Data Analysis Expressions), in a separated table, to support the analyses:
 
 ![measures](figures/Measures.png)
 
@@ -182,13 +182,14 @@ Some measures were defined using DAX (Data Analysis Expressions) to support the 
 
 ### 1. Geo Distribution
 
-At the first page it's possible to see how the properties listings are distributed within the country and the number of listings of each province as well. 
+On the first dashboard, it's possible to see how the properties are distributed within the country. The number and percentage of listings in each province show their contributions to the housing market supply of the country. 
 
 ![pg1](reports/pg1.png)
 
-They are 53,929 listings over 2030 cities.
+They are **53,929 listings** over 2030 cities.
 
-Zuid-Holland, Noord-Brabant, and Noord-Holland are the provinces with the **highest number of property listings** for sale, accounting for approximately 50% of the country's total supply.
+Zuid-Holland, Noord-Holland, and Noord-Brabant are the provinces with the **highest number of property listings** for sale, accounting for approximately 50% of the country's total supply.
+The standard map visual from Power BI uses coordinates as the geolocation indicators.
 
 ### 2. Properties Overview
 
@@ -196,7 +197,7 @@ Zuid-Holland, Noord-Brabant, and Noord-Holland are the provinces with the **high
 
 The second dashboard displays the occurrence of some features among the properties.
 
-- The vast majority of houses (74.91%) cost between 250K and 750K euros
+- The vast majority of houses (74.91%) cost between €250K and €750K
 - Amsterdam, Rotterdam, Den Haag, Utrecht, and Almere are the cities with the highest supply of properties
 - Approximately two-thirds of residential properties are houses, and one-third are apartments as shown in the pie chart
 - Most of them (67.77%) do not have their own parking
@@ -204,50 +205,51 @@ The second dashboard displays the occurrence of some features among the properti
 - As for balconies, only 28.27% of properties have it
 - The treemap indicates the proportion of the energy labels among the properties as well as their respective types of heating
 - The bar chart show us the main surroundings of the properties
-- On this page, it is also possible to see the results by city by using the filters
+- On this page, it is also possible to see the results by city using the filters
 
 ### 3. Properties Rooms
 
 ![pg3](reports/pg3.png)
    
-- The line charts indicates a trend of increasing property prices in relation to the number of bedrooms and bathrooms
-- The majority of houses (66.57%) have between 3, 4, and 5 rooms, 2 to 3 bedrooms, and 1 bathroom
-- On this page, it is also possible to filter by cities
+- The line charts indicates a trend of increasing property's prices in relation to the number of bedrooms and bathrooms
+- The majority of houses (66.57%) have between 3, 4, and 5 **rooms**, 2 to 3 **bedrooms**, and 1 **bathroom**
+- On this page, it is also possible to see the results by city using the filters
 
 ### 4. Size & Price Stats
 
 ![pg4](reports/pg4.png)
 
 - Regarding size, around 70% of properties measure between 50 and 150 m²
-- The overall average size of houses in the country is 131 m²
-- The overall average price is 529,783.60 euros
-- The median is 450,000 euros
-- With a standard deviation of 280,298.67 euros, it can be concluded that 80% of properties fall within the range of 249K and 810K euros
-- Through the scatter plot, a clearer clustering can be observed in areas up to 250m² on the X-axis and 1M euros on the Y-axis
-- A boxplot presents the statistics of property prices in the country:
+- The overall **average size** of houses in the country is **131 m²**
+- The overall **average pric**e is **€529,783.60** 
+- The median is €450,000
+- With a standard deviation of €280,298.67, it can be concluded that 80% of properties fall within the range of €249K and €810K 
+- Through the scatter plot, a clearer clustering can be observed in areas up to 250m² on the X-axis and up to €1M on the Y-axis
+- A boxplot presents the descriptive
+-  statistics of property prices in the country:
   ```
-  Minimum value: 79,000 euros
-  Maximum value: 1,900,000 euros
-  Mean: 529,783.60 euros
-  Median: 450,000 euros
-  Standard deviation: 280,298.67 euros
-  Interquartile range: 294,000 euros
-  1st quartile: 345,000 euros
-  3rd quartile: 639,000 euros
+  Minimum value: €79,000
+  Maximum value: €1,900,000
+  Mean: €529,783.60
+  Median: €450,000 
+  Standard deviation: €280,298.67
+  Interquartile range: €294,000
+  1st quartile: €345,000
+  3rd quartile: €639,000
   ```
-  - On this page, it is also possible to filter by cities
+  - On this page, it is also possible to see the results by city using the filters
 
 ### 5. Age & Size per m² Stats
 
 ![pg5](reports/pg5.png)
 
-- Regarding age, 57,78% of properties are less than 50 years old
-- The overall average age of houses in the country is 44.81 years old
-- The overall average price per square meter is 4,299.06 euros
+- Regarding age, 57,78% of properties are **less than 50 years old**
+- The overall **average age** of houses in the country is **44.81** years old
+- The overall **average price per square meter** is **4,299.06** euros
 - The median is 3,992.00 euros
 - With a standard deviation of 1,666.63 euros, it can be concluded that 96.52% of properties fall within the range of 2.7K and 5.77K euros
-- Through the scatter plot, a clearer clustering can be observed in areas up to 140 years old on the X-axis and 10K euros on the Y-axis
-- On this page, it is also possible to filter by cities
+- Through the scatter plot, a clearer clustering can be observed in areas up to 140 years old on the X-axis and up to 10K euros on the Y-axis
+- On this page, it is also possible to see the results by city using the filters
 
 
 ### 6. Provinces Price & Price per m² Average
@@ -256,33 +258,55 @@ The same metrics from the previous boxplot presents now a comparison between the
 
 ![pg6](reports/pg6.png)
 
-Descrição do boxplot provincias
+- Boxplot provinces:
+   -  Noord-Holland tops the list with highest average and median property prices, approaching €800K at the upper end of the IQR
+   -  Utrecht and Zuid-Holland follow closely with relatively high average prices
+   -  Groningen and Limburg show the lowest average, under €500K, indicating more affordable prices
+   -  The range of property prices is broad in most provinces, indicating variability in property values
 
-Descrição do column chart
+- Column chart:
+With €5.67K and €5.04K, Noord-Holland and Utrecht have the highest average prices per square meter among the provinces, while Limburg and Groningen have an average of around €3K.
+
+- The table below contains a summary of all the average prices, prices per m², and sizes of the provinces
 
 ### 7. Provinces Price per m² x Size Average
 
-Explicação do Provinces Price per m² x Size Average Bubble chart
-- On this page, it is also possible to filter by cities
-
 ![pg7](reports/pg7.png)
+
+The scatter chart highlights the relationship between the average size of properties and the average price per square meter across different provinces.
+
+- Noord-Holland and Utrecht are disputed markets with high prices per m² and smaller property sizes;
+
+- Zuid-Holland offers a balance with moderate property prices and sizes;
+
+- Zeeland, Groningen, Drenthe, and Limburg provide more affordable options with larger property sizes, making them **attractive for buyers seeking more space at lower costs**.;
+
+- Provinces like Gelderland, Noord-Brabant, Friesland, and Overijssel provide a good balance of size and price, catering to a wide range of buyers.
 
 ### 8. Price per m² Heat Map
 
-Explicação do heat map 
+On the Heat Map, the price per m² values are depicted by color, which allows us to have a general sense of the intensity of the value throughout the country, provinces, cities, and neighborhoods.
+Some Power BI maps have a point limit for rendering. In the case of the customized visual used in this representation (by Weiwei Cui), the limit is 30,000 points, which can be selected randomly or according to the data input (there is no clear documentation of it). This makes the visualizations more consistent when filtered by provinces or cities.
 
-![pg8](reports/pg8.png)
+![pg8](reports/pg8c.png)
 
 ### 9. Major Cities by Population
 
-Explicação do scatter chart
-
 ![pg9](reports/pg9.png)
+
+Now the scatter chart represents, in three dimensions, the main cities of the Netherlands with their average prices per m², average sizes, and population densities. 
+
+- Amsterdam, standing alone, represents the lowest value for money in terms of price per m² and space; while at the other extreme, also standing alone, is Venlo, with the second lowest average prices and the largest average space among the 32 cities.
+
+- A dashed line in the background shows the increasing trend between the variables price per m² and size.
+
 
 ### 10. Prices Map Navigation
 
+![pg10](reports/pg10.png)
+
 Explicação do bubbles map
 
-![pg10](reports/pg10.png)
+
 
 
