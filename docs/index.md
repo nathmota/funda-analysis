@@ -312,6 +312,17 @@ Both through the zoom and the table next to it, it is also possible to navigate 
 ![pg10](reports/pg10.png)
 
 
+## Challenges and Limitations
+
+Podem ser consideradas limitações deste projeto:
+
+- Atualização dos dados
+	Os processos de extração e processamento podem levar dias, o que dificulta manter o dashboard "up to date". Sendo assim, este projeto contempla, até aqui, um snap shot do dia em que foi feita a extração dos dados.
+- Para progredir do status de estudo de caso e se tornar uma ferramenta funcional, também seria necessária uma licença para que o Microsoft Power BI permitisse a publicação do relatório, e para que todas as suas ferramentas de interatividade fossem usufruídas.
+- O fato do Heat Map não carregar mais de 30,000 entradas limite a visibilidade de todos os pontos 
+
+
+### Possiveis Extensões: O Funda Scraper permite a raspagem de dados passados, ou seja, um historico de anuncios com imoveis que tambem ja foram vendidos e não somente os que estao no mercado. Com estes dados seria possivel fazer uma analise temporal do mercado, extrair padroes e fazer previsões, o que seria uma extensão muito interessante para este projeto.
 
 
 
