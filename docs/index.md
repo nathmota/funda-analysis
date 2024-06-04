@@ -303,9 +303,14 @@ Now the scatter chart represents, in three dimensions, the main cities of the Ne
 
 ### 10. Prices Map Navigation
 
+In the last dashboard, there is a bubble map with a size scaler relative to the property price. With a more open zoom, it is possible to see the country with province labels divided by colors, and also use them for filtering. Once filtered to a smaller granularity, such as by city, the bubbles will become more visible, and it is possible to identify the cheapest to most expensive properties.
+
+![pg10](reports/pg10b.png)
+
+Both through the zoom and the table next to it, it is also possible to navigate through the neighborhoods, select a property, and open the URL referring to it, which appears in the bottom left corner, as shown in the figure.
+
 ![pg10](reports/pg10.png)
 
-Explicação do bubbles map
 
 
 
