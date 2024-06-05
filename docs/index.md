@@ -388,15 +388,13 @@ Both through the zoom and the table next to it, it is also possible to navigate 
 
 ## Challenges and Limitations
 
-Podem ser consideradas limitações deste projeto:
+Possible limitations of this project:
+- Data update: The extraction and processing procedures can take days, making it difficult to keep the dashboard up to date. Thus, this project represents a snapshot of the day the data was extracted.
+- To progress from the status of a case study and become a functional tool, a license would also be needed for Microsoft Power BI to allow the report to be published and for all its interactivity features to be utilized.
+- The fact that the Heat Map does not load more than 30,000 entries limits the visibility of all points.
 
-- Atualização dos dados
-	Os processos de extração e processamento podem levar dias, o que dificulta manter o dashboard "up to date". Sendo assim, este projeto contempla, até aqui, um snap shot do dia em que foi feita a extração dos dados.
-- Para progredir do status de estudo de caso e se tornar uma ferramenta funcional, também seria necessária uma licença para que o Microsoft Power BI permitisse a publicação do relatório, e para que todas as suas ferramentas de interatividade fossem usufruídas.
-- O fato do Heat Map não carregar mais de 30,000 entradas limite a visibilidade de todos os pontos 
-
-
-### Possiveis Extensões: O Funda Scraper permite a raspagem de dados passados, ou seja, um historico de anuncios com imoveis que tambem ja foram vendidos e não somente os que estao no mercado. Com estes dados seria possivel fazer uma analise temporal do mercado, extrair padroes e fazer previsões, o que seria uma extensão muito interessante para este projeto.
+#### Possible extensions: 
+The Funda Scraper allows the scraping of past data, meaning a history of listings with properties that have also been sold, not just those currently on the market. With this data, it would be possible to perform a temporal analysis of the market, extract patterns, and make predictions, which would be a very interesting extension for this project.
 
 
 
