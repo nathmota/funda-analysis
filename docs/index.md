@@ -1,6 +1,8 @@
 
 # Funda Properties Listings Data Analysis 
 
+
+
 Nathalia V. M. de Oliveira - April, 2024.
 
 ### Analysis of the Dutch Housing Market, based on Properties Listings Available on *Funda.nl* website.
@@ -11,14 +13,14 @@ Nathalia V. M. de Oliveira - April, 2024.
 3. Examine the profile of houses and the distribution of their most common features;
 4. Identify factors that may contribute to the variation in property prices.
 
-## Data Source
+### Data Source
 
 [Funda](https://www.funda.nl/) is a Dutch residential platform established since more than 20 years ago. According to their website, Funda is the largest platform connecting supply and demand in the real estate market of the Netherlands, with over 4 million unique visitors per month and hosting around 97% of the Dutch housing market.
 
 According Funda's Terms and Conditions, scraping its website is only allowed for personal use.
 
 
-## Collecting the Data
+## Extraction - Collecting the Data
 
 [Webscraping script](https://github.com/nathmota/funda-analysis/blob/main/src/webscraping_script.py)
 
@@ -116,63 +118,131 @@ For some reason, Noord Holland and Noord Brabant have more than 9990 listings. I
 
 The raw dataset then starts with 61,286 entries and 1.1 GB in size.
 
+## Transformation - Processing the Data
 
+On the transformation step, several processes were applied to the data so that could be better suited for analytics.
 
-## Processing the Data
+The script **loads raw data** from each province CSV file,
 
-[Data processing script](https://github.com/nathmota/funda-analysis/blob/main/src/data_processing_script.py) using Pandas for Python.
+![Applied steps](figures/files.png)
 
-The script loads raw data from each CSV file corresponding to different provinces of the Netherlands and creates them specified folders. 
+ and **creates them specified folders** in a general chunk folder, in which the processed data will be written after the cleansing.
+ 
+![Applied steps](figures/folders.png)
 
-### Using chunks
+#### Using chunks
 The processing step ended up heavy and a bit slow. There was a need to adopt a measure to maintain the already processed data and avoid losses due to frequent interruptions in execution caused by unexpected occurrences. In order to breaking down the dataset into **smaller and more manageable pieces**, the cleaning and writing process for each province was then partitioned into **chunks** of 300 instances and executed in a loop.
 
-  
- 
 
-### General cleaning: 
+#### General Data Cleansing: 
 
-- It removes rows with **missing values** in essential columns, those whose absence would make most analyses impossible. Other blank data were accepted and left blank, as they are assumed to be Missing Completely at Random (MCAR). 
-- **Eliminates duplicate** identical records and also identical addresses.
-- **Drops columns** that won't be used later.
+- Removes rows with **missing values** in essential columns. Those whose absence would make most analyses impossible, for instance, address or price columns.
+  Other blank data were accepted and left blank, as they are assumed to be Missing Completely at Random (MCAR). 
+- **Deduplication** by comparing identical records and also identical addresses.
+- **Dropping columns** that won't be used later due of the scope of the project. For instance, ```'photo', 'descrip', 'log_id', 'insulation', 'ownership'``` and other that can be seen at [Data processing script](https://github.com/nathmota/funda-analysis/blob/main/src/data_processing_script.py).
 
-### Cleaning specific features:
+#### Specific features cleansing:
 
 - **Size (size_m2)**: Removes unwanted characters, converts to numeric type, and renames the column.
+  	- For exemple, from string ``` '226 m²'``` to number ```226```.
 - **Price (price)**: Removes unwanted characters and converts to numeric type.
+  	- For exemple, from string ``` '€ 1.190.000 k.k.'``` to number ```1190000```.
 - **Price per square meter (price_m2)**: Calculates the price per square meter (m²).
-- **Year built (year_built)**: Extracts only the last 4 digits of the year and converts to numeric type.
-- **House age (house_age)**: Calculates the age of the house relative to the current year.
+- **Year built (year_built)**: Extracts the year from text and converts to numeric type.  	
+  	- For exemple, from
+  	  ``` 
+		1960-1970
+		Na 2020
+		Voor 1906
+		2025
+		```
+  	  to ```YYYY```.
+- **House age (house_age)**: By derivation, calculates the age of the house relative to the current year.
 - **Energy label (energy_label)**: Extracts the relevant part of the energy label.
-- **Heating (heating)**: Extracts patterns from text and categorizes the heating type.
-- **Parking (has_parking)**: Determines if the property has parking based on the description.
-- **Exteriors (has_balcony, has_garden, surrounding)**: Identifies if the property has a balcony and garden, and categorizes the surrounding environment by extracting patterns.
-- **House type (house_type), House ID (house_id), Listing date (date_list), Province (provincie)**: Extracts from the URLs.
-- **Layout (num_of_floors, located_floor, num_of_rooms, num_of_bedrooms, num_of_bathrooms, num_of_toilets)**: Extracts information about the property layout text content and cleans associated values. 
-- **Addresses and Zip codes**: Cleans addresses, extracts complete zip codes, and obtains geolocation (geographical coordinates) by using **Geopy**.
+    	- For exemple, from
+``` 
+	D
+	F
+	A+
+	A+++
+	A+++
+	A++++
+	C
+	A  0,78
+	na
+	C
+```
+  to ```A, B, C, D, E, F, G and agregating all A more than 1+ into A+```.
+- **Heating (heating)**: Extracts patterns from text, categorizes the heating type, and translated to english.
+  	- For exemple, from
+  	  ``` 
+		Cv-ketel, gashaard en gedeeltelijke vloerverwarming
+		Cv-ketel en gedeeltelijke vloerverwarming
+		Gehele vloerverwarming, warmte terugwininstallatie en warmtepomp
+		Gaskachels
+		Gehele vloerverwarming en warmtepomp
+		Cv-ketel en pelletkachel
+		Open haard, gedeeltelijke vloerverwarming en warmtepomp
+		Cv-ketel
+		Blokverwarming
+		```
+  	  to
+  	   ```
+		boiler
+		boiler
+		heat pump
+		gas heaters
+		heat pump
+		boiler
+		heat pump
+		boiler
+		block heating			
+  		```
+- **Parking (has_parking)**: Determines if the property has its own parking spot based on the text description. Public or paid spots are given as 'no'.
+    	- For exemple, from
+  ``` 
+	Soort garageVrijstaande houten garageCapaciteit2 auto'sVoorzieningenElektrische deur en elektra
+	Soort garageAangebouwde stenen garageCapaciteit3 auto'sVoorzieningenElektraIsolatieGeen isolatie
+	Soort parkeergelegenheidOp eigen terrein en openbaar parkeren
+	Soort garageCarport, garage met carport en vrijstaande stenen garageCapaciteit4 auto'sVoorzieningenElektrische deur, vliering, elektra, verwarming en stromend waterIsolatieDakisolatie en muurisolatie
+	```
+  to ```'yes' or 'no'```.
+- **Exteriors (has_balcony, has_garden, surrounding)**: Identifies if the property has a balcony and garden, and categorizes the surrounding environment by extracting patterns from text.
+- **House type (house_type), House ID (house_id)** : Extracts from the URLs. For exemple
+	https://www.funda.nl/detail/koop/utrecht/huis-jeanne-d-arcdreef-11/89977384/, where house_type = 'huis' and house_id = '89977384'.
+- **Listing date (date_list), Province (provincie)**: Extracts information by requesting the head section of web pages.
+- **Layout (num_of_floors, located_floor, num_of_rooms, num_of_bedrooms, num_of_bathrooms, num_of_toilets)**: Extracts data from keywords contained in the 'layout' textual column and cleans the associated values.
+- **Addresses and Zip codes**: Cleans addresses, extracts complete zip codes, and obtains geolocation (geographical coordinates) by using **Geopy** module.
 
-- For outlier detection, the Z-score method was applied on the property prices. Results greater than 3 were considered outliers, which in the dataset reflect prices up to €1,900,000.
-- Then, **782** were considered outliers, while **53,117** were considered normal.
 
 ### Concatenating chunks and files
-Finally, another script concatenates the chunks of each province into a file per province and then, concatenates all the province files into a single CSV file.
+
+Finally, another script [concatenates](https://github.com/nathmota/funda-analysis/blob/main/src/chunks_concat.py) the chunks of each province into a file per province and then, concatenates all the province files into a single CSV file.
+
+![Applied steps](figures/files2.png)
+
 The final processed file contains 53,931 entries and 18,7 MB in size.
 
 ## Exploratory Data Analysis (EDA) and Visualization
 
-The exploratory data analysis, as well as the visualizations, are built using ***Power BI***, in order to understand the data distribution, patterns, relationships and generate insights.
+The exploratory data analysis, as well as the visualizations, were built using ***Power BI***, in order to understand the data distribution, patterns, relationships and generate insights. It comprises the phases bellow:
 
-### Transformation
+### Transformation part 2 - Power BI
 
-The processed data CSV file is loaded, and techniques such as ty
-pe adjustment, column splitting and renaming, and creating columns with value ranges are applied in the Power Query editor.
+The processed data CSV file is loaded, and techniques such as type adjustment, column splitting and renaming, and creating columns with value ranges are applied in the Power Query editor.
 
 ![Applied steps](figures/applied_steps2.png)
 
+### Outliers 
+
+For outlier detection, the Z-score method was applied on the property prices and prices per m². Results greater than 3 were considered outliers, which in the dataset reflect prices from €1,900,000 and ... per m².
+
+- Then, **782** were considered outliers, while **53,117** were considered normal.
+
 ### Modeling
 
-At this stage, a new data source is also incorporated: a table with some of the largest and main cities in the Netherlands along with their respective populations, which will be used in future analyses. 
-Thus, the "Funda" and "LargestCities" tables are related through the column "city".
+At this stage, a new data source has been also incorporated: a table with some of the largest and main cities in the Netherlands along with their respective populations, which will be used in related analyses. 
+Thus, the "Funda" and "LargestCities" tables received a relationship through the common column "city".
 
 ![model](figures/model.png)
 
