@@ -3,17 +3,17 @@
 
 Nathalia V. M. de Oliveira - April, 2024.
 
-### Analysis of the Dutch Housing Market, based on Properties Listings Available on *funda.nl* website.
+### Analysis of the Dutch Housing Market, based on Properties Listings Available on *Funda.nl* website.
 
 ## Project Objective:
-1. Provide an overview of the housing market in the Netherlands through online property listings;
+1. Provide an overview of the housing market in the Netherlands through online property listed on the Funda.nl website;
 2. Generate insights into the most valuable or cost-effective locations among provinces and cities;
 3. Examine the profile of houses and the distribution of their most common features;
 4. Identify factors that may contribute to the variation in property prices.
 
 ## Data Source
 
-[Funda](https://www.funda.nl/) is a Dutch platform established over 20 years ago. According to their website, Funda is the largest platform connecting supply and demand in the real estate market of the Netherlands, with over 4 million unique visitors per month and hosting around 97% of the Dutch housing market.
+[Funda](https://www.funda.nl/) is a Dutch residential platform established since more than 20 years ago. According to their website, Funda is the largest platform connecting supply and demand in the real estate market of the Netherlands, with over 4 million unique visitors per month and hosting around 97% of the Dutch housing market.
 
 According Funda's Terms and Conditions, scraping its website is only allowed for personal use.
 
@@ -44,12 +44,11 @@ Number of pages to be fetched. A certain number of pages I found is safe to reco
 - **raw_data=True**:
 To fetch the data without any preprocessing. I decided to do all the preprocessing myself. However, it's possible to set the argument to False to receive beautifully processed and structured data.
 
-Although searching by province may return 12,000 results, for instance, Funda only makes a maximum of 666 pages accessible, as shown below. This equates to 9,990 entries, as each page contains 15 listings.
+Although searching by province may return, for instance, 12,000 results, Funda only makes a maximum of 666 pages accessible, as shown below. This equates to 9,990 entries, as each page contains 15 listings.
+
+You can have a preview of this search by province results [here](https://www.funda.nl/koop/bladeren/).
 
 Then, every 50 pages (or 750 entries), the script scrapes and records the data into a CSV regarding each province.
-
-
-[See the provinces results.](https://www.funda.nl/koop/bladeren/). 
 
 ![Search results](figures/fig1.png)
 ![Search results](figures/fig2.png)
@@ -161,7 +160,8 @@ The exploratory data analysis, as well as the visualizations, are built using **
 
 ### Transformation
 
-The processed data CSV file is loaded, and techniques such as type adjustment, column splitting and renaming, and creating columns with value ranges are applied in the Power Query editor.
+The processed data CSV file is loaded, and techniques such as ty
+pe adjustment, column splitting and renaming, and creating columns with value ranges are applied in the Power Query editor.
 
 ![Applied steps](figures/applied_steps2.png)
 
