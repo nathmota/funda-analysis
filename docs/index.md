@@ -122,8 +122,12 @@ The raw dataset then starts with 61,286 entries and 1.1 GB in size.
 
 [Data processing script](https://github.com/nathmota/funda-analysis/blob/main/src/data_processing_script.py) using Pandas for Python.
 
+The script loads raw data from each CSV file corresponding to different provinces of the Netherlands and creates them specified folders. 
+
 ### Using chunks
-The script loads raw data from CSV files corresponding to different provinces of the Netherlands from specified folders. As the cleaning process progressed and became more complex and heavy, there was a need to adopt a measure to maintain the already processed data and avoid losses due to frequent interruptions in execution caused by unexpected occurrences. The cleaning and writing process for each province was then partitioned into chunks of 300 instances and executed in a loop.
+The processing step ended up heavy and a bit slow. There was a need to adopt a measure to maintain the already processed data and avoid losses due to frequent interruptions in execution caused by unexpected occurrences. In order to breaking down the dataset into **smaller and more manageable pieces**, the cleaning and writing process for each province was then partitioned into **chunks** of 300 instances and executed in a loop.
+
+  
  
 
 ### General cleaning: 
