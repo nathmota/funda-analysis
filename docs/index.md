@@ -94,7 +94,7 @@ And they look like this:
 
 ![raw data](figures/raw1.png)
 
-You can also check it up on [raw data](../data/raw/). It’s possible to see that it is going to take a lot of work.
+You can also check it up on [raw data](https://github.com/nathmota/funda-analysis/tree/main/data/raw). It’s possible to see that it is going to take a lot of work.
 
 And so, the following provinces CSV files were generated. The number corresponds to the quantity of listings returned:
 ```
@@ -120,7 +120,7 @@ The raw dataset then starts with 61,286 entries and 1.1 GB in size.
 
 ## Processing the Data
 
-[Data processing script](../src/data_processing_script.py) using Pandas for Python.
+[Data processing script](https://github.com/nathmota/funda-analysis/blob/main/src/data_processing_script.py) using Pandas for Python.
 
 ### Using chunks
 The script loads raw data from CSV files corresponding to different provinces of the Netherlands from specified folders. As the cleaning process progressed and became more complex and heavy, there was a need to adopt a measure to maintain the already processed data and avoid losses due to frequent interruptions in execution caused by unexpected occurrences. The cleaning and writing process for each province was then partitioned into chunks of 300 instances and executed in a loop.
