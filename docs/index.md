@@ -241,9 +241,10 @@ The processed data CSV file is loaded, and techniques such as type adjustment, c
 
 ### Outliers 
 
-For outlier detection, the Z-score method was applied on the property prices and prices per m². Results greater than 3 were considered outliers, which in the dataset reflect prices from €1,900,000 and ... per m².
+For outlier detection, the Z-score method was applied on the property prices and prices per m². Results greater than 3 were considered outliers, which in the dataset reflect prices from €1,900,000 and €4,299.06 per m². Then,
 
-- Then, **782** were considered outliers, while **53,117** were considered normal.
+- **782** properties ***prices*** were considered outliers, while **53,117** were considered normal.
+- **x** properties ***prices per m²*** were considered outliers, while **y** were considered normal.
 
 ### Modeling
 
@@ -326,11 +327,11 @@ The second dashboard displays the occurrence of some features among the properti
 ![pg5](reports/pg5.png)
 
 - Regarding age, 57,78% of properties are **less than 50 years old**
-- The overall **average age** of houses in the country is **44.81** years old
-- The overall **average price per square meter** is **4,299.06** euros
-- The median is 3,992.00 euros
-- With a standard deviation of 1,666.63 euros, it can be concluded that 96.52% of properties fall within the range of 2.7K and 5.77K euros
-- Through the scatter plot, a clearer clustering can be observed in areas up to 140 years old on the X-axis and up to 10K euros on the Y-axis
+- The overall **average age** of houses in the country is **€44.81** years old
+- The overall **average price per square meter** is **€4,299.06** 
+- The median is €3,992.00 
+- With a standard deviation of €1,666.63, it can be concluded that 96.52% of properties fall within the range of €2.7K and €5.77K
+- Through the scatter plot, a clearer clustering can be observed in areas up to 140 years old on the X-axis and up to €10K on the Y-axis
 - On this page, it is also possible to see the results by city using the filters
 
 
