@@ -1,17 +1,18 @@
 
 # Funda Properties Listings Data Analysis 
 
-
-
 Nathalia V. M. de Oliveira - April, 2024.
 
-### Analysis of the Dutch Housing Market, based on Properties Listings Available on *Funda.nl* website.
+### Analysis of the Dutch Housing Market
 
-## Project Objective:
+This project analyzes the Dutch housing market based on property listings available on the **Funda.nl** website. The objective is: 
+
 1. Provide an overview of the housing market in the Netherlands through online property listed on the Funda.nl website;
 2. Generate insights into the most valuable or cost-effective locations among provinces and cities;
 3. Examine the profile of houses and the distribution of their most common features;
 4. Identify factors that may contribute to the variation in property prices.
+
+The process involves data extraction via web scraping, data transformation for cleaning and preparation, and exploratory analysis through interactive visualizations in Power BI. The result is a set of dashboards offering detailed insights into geographic distribution, property characteristics, and price and size statistics by province and city.
 
 ### Data Source
 
@@ -253,6 +254,8 @@ A few measures were defined using DAX (Data Analysis Expressions), in a separate
 ![measures](figures/Measures.png)
 
 ## Visualizations and Results
+
+The results are presented through interactive dashboards in Power BI, offering a detailed analysis of the geographic distribution of properties, common features, price and size statistics, and comparisons between provinces and cities.
 
 ### 1. Geo Distribution
 
