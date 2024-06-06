@@ -25,8 +25,8 @@ According Funda's Terms and Conditions, scraping its website is only allowed for
 
 [Webscraping script](https://github.com/nathmota/funda-analysis/blob/main/src/webscraping_script.py)
 
-The data were scraped from Funda using [FundaScraper](https://github.com/whchien/funda-scraper) for Python.
-There are several different sets of arguments that can generate diverse searches. For this project, the following arguments have been used:
+The data were scraped from Funda using [FundaScraper](https://github.com/whchien/funda-scraper) module for Python.
+Before running it, there are several different sets of arguments that can generate diverse searches. For this project, the following arguments have been used:
 ```
 area=provincie
 want_to=buy
@@ -93,11 +93,11 @@ The raw scraped dataset contains the following columns:
 27. last_ask_price_m2
 28. city
 
-And they look like this:
+The raw data look like expected, a little mess.
 
 ![raw data](figures/raw1.png)
 
-You can also check it up on [raw data](https://github.com/nathmota/funda-analysis/tree/main/data/raw). It’s possible to see that it is going to take a lot of work.
+You can also take a look at the [whole table](https://github.com/nathmota/funda-analysis/tree/main/data/raw). It’s possible to see that it is going to take a lot of work.
 
 And so, the following provinces CSV files were generated. The number corresponds to the quantity of listings returned:
 ```
@@ -121,9 +121,9 @@ The raw dataset then starts with 61,286 entries and 1.1 GB in size.
 
 ## Transformation - Processing the Data
 
-On the transformation step, several processes were applied to the data so that could be better suited for analytics.
+On the transformation step, when running the [data processing script](https://github.com/nathmota/funda-analysis/blob/main/src/data_processing_script.py), several processes were applied to the data so that could be better suited for analytics.
 
-The script **loads raw data** from each province CSV file,
+At first, the script **loads raw data** from each province CSV file,
 
 ![Applied steps](figures/files.png)
 
@@ -131,9 +131,12 @@ The script **loads raw data** from each province CSV file,
  
 ![Applied steps](figures/folders.png)
 
-#### Using chunks
+### Using chunks
 The processing step ended up heavy and a bit slow. There was a need to adopt a measure to maintain the already processed data and avoid losses due to frequent interruptions in execution caused by unexpected occurrences. In order to breaking down the dataset into **smaller and more manageable pieces**, the cleaning and writing process for each province was then partitioned into **chunks** of 300 instances and executed in a loop.
 
+### Transformation part I 
+
+Process all perfomed using Pandas.
 
 #### General Data Cleansing: 
 
@@ -173,10 +176,9 @@ The processing step ended up heavy and a bit slow. There was a need to adopt a m
 	na
 	C
 ```
-  to ```A, B, C, D, E, F, G and agregating all A more than 1+ into A+```.
-- **Heating (heating)**: Extracts patterns from text, categorizes the heating type, and translated to english.
-  	- For exemple, from
-  	  ``` 
+  to ```A, B, C, D, E, F, G and agregating all A greater than A+ into A+```.
+- **Heating (heating)**: Extracts patterns from text, categorizes the heating type, and translated to english. For exemple, from
+  ``` 
 		Cv-ketel, gashaard en gedeeltelijke vloerverwarming
 		Cv-ketel en gedeeltelijke vloerverwarming
 		Gehele vloerverwarming, warmte terugwininstallatie en warmtepomp
@@ -186,9 +188,9 @@ The processing step ended up heavy and a bit slow. There was a need to adopt a m
 		Open haard, gedeeltelijke vloerverwarming en warmtepomp
 		Cv-ketel
 		Blokverwarming
-		```
-  	  to
-  	   ```
+	```
+  to
+   ```
 		boiler
 		boiler
 		heat pump
@@ -198,7 +200,7 @@ The processing step ended up heavy and a bit slow. There was a need to adopt a m
 		heat pump
 		boiler
 		block heating			
-  		```
+	```
 - **Parking (has_parking)**: Determines if the property has its own parking spot based on the text description. Public or paid spots are given as 'no'.
     	- For exemple, from
   ``` 
@@ -210,15 +212,18 @@ The processing step ended up heavy and a bit slow. There was a need to adopt a m
   to ```'yes' or 'no'```.
 - **Exteriors (has_balcony, has_garden, surrounding)**: Identifies if the property has a balcony and garden, and categorizes the surrounding environment by extracting patterns from text.
 - **House type (house_type), House ID (house_id)** : Extracts from the URLs. For exemple
-	https://www.funda.nl/detail/koop/utrecht/huis-jeanne-d-arcdreef-11/89977384/, where house_type = 'huis' and house_id = '89977384'.
+  
+	https://www.funda.nl/detail/koop/utrecht/huis-jeanne-d-arcdreef-11/89977384/
+
+ 	where house_type = '**huis**' and house_id = '**89977384**'.
 - **Listing date (date_list), Province (provincie)**: Extracts information by requesting the head section of web pages.
 - **Layout (num_of_floors, located_floor, num_of_rooms, num_of_bedrooms, num_of_bathrooms, num_of_toilets)**: Extracts data from keywords contained in the 'layout' textual column and cleans the associated values.
 - **Addresses and Zip codes**: Cleans addresses, extracts complete zip codes, and obtains geolocation (geographical coordinates) by using **Geopy** module.
 
 
-### Concatenating chunks and files
+#### Concatenating chunks and files
 
-Finally, another script [concatenates](https://github.com/nathmota/funda-analysis/blob/main/src/chunks_concat.py) the chunks of each province into a file per province and then, concatenates all the province files into a single CSV file.
+Finally, a third script was used to [concatenate](https://github.com/nathmota/funda-analysis/blob/main/src/chunks_concat.py) the chunks of each province into a file per province and then, concatenates all the province files into a single CSV file.
 
 ![Applied steps](figures/files2.png)
 
