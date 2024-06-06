@@ -15,10 +15,10 @@ for provincie_folder in provincie_folders:
         dfs.append(df_chunk)
     concatenated_df = pd.concat(dfs, ignore_index=True)
 
-    output_csv_path = os.path.join(provincie_folder, 'provincie_data.csv')  # generating one single csv for the province
+    output_csv_path = os.path.join(provincie_folder, 'provincie_data_final.csv')  # generating one single csv for the province
     concatenated_df.to_csv(output_csv_path, index=False)
 
-provincie_csv_files = [os.path.join(provincie_folder, 'provincie_data.csv') for provincie_folder in provincie_folders]  # joining the province's single csv
+provincie_csv_files = [os.path.join(provincie_folder, 'provincie_data_final.csv') for provincie_folder in provincie_folders]  # joining the province's single csv
 processed_data = pd.concat([pd.read_csv(csv_file) for csv_file in provincie_csv_files], ignore_index=True)
 
 big_final_csv_path = f'{processed_folder_path}{processed_data}.csv'
