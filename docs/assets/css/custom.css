@@ -1,5 +1,13 @@
-.main-content {
-    max-width: 1200px; 
-    width: 100%;
-    margin: 0 auto;
+.wrapper {
+  width:80%;
+  margin:0 auto
+}
+
+.wrapper section{
+  width:75%;
+  margin:0 auto
+}
+
+body {
+  font: 18px/1.5 "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
