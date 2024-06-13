@@ -3,3 +3,5 @@ logo: figures/proj_funda_logo.png
 #description: text below image
 #show_downloads: true
 theme: jekyll-theme-minimal
+include:
+  - assets/css/custom.css
