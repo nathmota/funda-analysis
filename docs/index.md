@@ -58,7 +58,7 @@ Then, every 50 pages (or 750 entries), the script scrapes and records the data i
 
 The pictures show there are no next pages.
 
-![Search results](figures/fig1.png)
+![Search results](figures/fig1b.png)
 
 
 
@@ -263,7 +263,7 @@ A few measures were defined using DAX (Data Analysis Expressions), in a separate
 
 ![measures](figures/Measures4.png)
 
-## Visualizations and Results
+## Visualization and Results
 
 The results are presented through interactive dashboards in Power BI, offering a detailed analysis of the geographic distribution of properties, common features, price and size statistics, and comparisons between provinces and cities.
 
