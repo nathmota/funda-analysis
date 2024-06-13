@@ -55,7 +55,7 @@ You can have a preview of this search by province results [here](https://www.fun
 Then, every 50 pages (or 750 entries), the script scrapes and records the data into a CSV regarding each province.
 
 ![Search results](figures/fig1.png)
-![Search results](figures/fig2b.png)
+![Search results](figures/fig2c.png)
 
 
 
@@ -258,7 +258,7 @@ Thus, the "Funda" and "LargestCities" tables received a relationship through the
 
 A few measures were defined using DAX (Data Analysis Expressions), in a separated table, to support the analyses:
 
-![measures](figures/Measures2.png)
+![measures](figures/Measures4.png)
 
 ## Visualizations and Results
 
