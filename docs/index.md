@@ -58,7 +58,7 @@ Then, every 50 pages (or 750 entries), the script scrapes and records the data i
 
 The pictures show there are no next pages.
 
-![Search results](figures/fig2d.png)
+![Search results](figures/fig2c.png)
 
 
 
