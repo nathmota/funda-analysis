@@ -55,7 +55,10 @@ You can have a preview of this search by province results [here](https://www.fun
 Then, every 50 pages (or 750 entries), the script scrapes and records the data into a CSV regarding each province.
 
 ![Search results](figures/fig1.png)
-![Search results](figures/fig2c.png)
+
+The pictures show there are no next pages.
+
+![Search results](figures/fig2d.png)
 
 
 
