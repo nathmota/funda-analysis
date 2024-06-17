@@ -377,7 +377,9 @@ The scatter chart highlights the relationship between the average size of proper
 On the Heat Map, the price per m² values are depicted by color, which allows us to have a general sense of the intensity of the value throughout the country, provinces, cities, and neighborhoods.
 Some Power BI maps have a point limit for rendering. In the case of the customized visual used in this representation (by Weiwei Cui), the limit is 30,000 points, which can be selected randomly or according to the data input (there is no clear documentation of it). This makes the visualizations more consistent when filtered by provinces or cities.
 
-![pg8](reports/pg8c.png)
+![pg8](reports/pg8.png)
+
+![pg8](reports/pg8a.png)
 
 ### 9. Major Cities by Population
 
@@ -394,11 +396,11 @@ Now the scatter chart represents, in three dimensions, the main cities of the Ne
 
 In the last dashboard, there is a bubble map with a size scaler relative to the property price. With a more open zoom, it is possible to see the country with province labels divided by colors, and also use them for filtering. Once filtered to a smaller granularity, such as by city, the bubbles will become more visible, and it is possible to identify the cheapest to most expensive properties.
 
-![pg10](reports/pg10b.png)
+![pg10](reports/pg10.png)
 
 Both through the zoom and the table next to it, it is also possible to navigate through the neighborhoods, select a property, and open the URL referring to it, which appears in the bottom left corner, as shown in the figure.
 
-![pg10](reports/pg10.png)
+![pg10](reports/pg10a.png)
 
 
 ## Challenges and Limitations
