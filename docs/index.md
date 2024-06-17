@@ -402,14 +402,17 @@ Both through the zoom and the table next to it, it is also possible to navigate 
 
 ![pg10](reports/pg10a.png)
 
-See the [Report's video](https://youtu.be/QiPv4HhxsoA).
 
 ## Challenges and Limitations
 
 Possible limitations of this project:
 - Data update: The extraction and processing procedures can take days, making it difficult to keep the dashboard up to date. Thus, this project represents a snapshot of the day the data was extracted.
-- To progress from the status of a case study and become a functional tool, a license would also be needed for Microsoft Power BI to allow the report to be published and for all its interactivity features to be utilized.
-- The fact that the Heat Map does not load more than 30,000 entries limits the visibility of all points.
+- Accessibility and interactivity: To progress from the status of a case study to a functional tool, a license for Microsoft Power BI would also be needed to allow the report to be published and to utilize all its interactivity features.
+- Heat Map: The fact that the Heat Map does not load more than 30,000 entries limits the visibility of all points.
+
+
+## Report's Video
+In the [Report's video](https://youtu.be/QiPv4HhxsoA) it's possible to better see interactive visualizations.
 
 #### Possible extensions: 
 The Funda Scraper allows the scraping of past data, meaning a history of listings with properties that have also been sold, not just those currently on the market. With this data, it would be possible to perform a temporal analysis of the market, extract patterns, and make predictions, which would be a very interesting extension for this project.
