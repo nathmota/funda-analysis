@@ -402,6 +402,7 @@ Both through the zoom and the table next to it, it is also possible to navigate 
 
 ![pg10](reports/pg10a.png)
 
+See the [Report's video](https://youtu.be/QiPv4HhxsoA).
 
 ## Challenges and Limitations
 
