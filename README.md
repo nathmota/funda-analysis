@@ -7,12 +7,12 @@ However, it's possible to run the scripts directly as well, if you don't want to
 
 - **Project Workflow**
     - Automated Extraction and Cleaning Pipeline using Apache Airflow (DAG) running 3 tasks:
-        1. **E**xtract: webscraping_task running the webscraping_script.py - that collect data via Web Scraping using the [Funda Scraper](https://github.com/whchien/funda-scraper) module
-        2. **T**ransform: processing_task running the data_processing_script.py - that does cleaning/pre-processing, executed in bite-size chunks, using
+        1. **E**xtract: webscraping_task running the `webscraping_script.py` - that collect data via Web Scraping using the [Funda Scraper](https://github.com/whchien/funda-scraper) module
+        2. **T**ransform: processing_task running the `data_processing_script.py` - that does cleaning/pre-processing, executed in bite-size chunks, using
             - Numpy/Pandas for cleaning
             - Beautiful Soup for dataset enrichment, scraping some additional data directly from Funda
             - Geopy for obtaining geolocations
-        3. Concatenate: concat_task running the concatenation_script.py - that concatenate chunks and province files in a single file dataset
+        3. Concatenate: concat_task running the `chunks_concat.py` - that concatenate chunks and province files in a single file dataset
   Tasks Dependencies: webscraping_task >> processing_task >> concat_task
     - PowerBI part:
         - **L**oad: (+ additional transformation): Made on Power BI for Exploratory Data Analysis and for generating visualizations
