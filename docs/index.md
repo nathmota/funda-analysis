@@ -15,6 +15,8 @@ This project analyzes the Dutch housing market based on property listings availa
 
 The process involves data extraction via web scraping, data transformation for cleaning and preparation, and exploratory analysis through interactive visualizations in Power BI. The result is a set of dashboards offering detailed insights into geographic distribution, property characteristics, and price and size statistics by province and city.
 
+If you are NOT interested in the technical part, you can go straight to the [Results](#visualization-and-results).
+
 ### Data Source
 
 [Funda](https://www.funda.nl/) is a Dutch residential platform established since more than 20 years ago. According to their website, Funda is the largest platform connecting supply and demand in the real estate market of the Netherlands, with over 4 million unique visitors per month and hosting around 97% of the Dutch housing market.
