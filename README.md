@@ -2,10 +2,10 @@
 
 ![Report preview](docs/figures/report_preview.png)
 
-This project consisted of **collecting**, **processing** and **analyzing** data of the Dutch real estate market, based on property listings available on [Funda](https://www.funda.nl/) website. The ETL pipeline carried out within it made use of Apache Airflow for orchestrating the Python scripts that run its main tasks and the Power BI application for the data analysis.
-However, it's possible to run the Python scripts directly as well, if you don't want to use Apache Airflow. Just skip the 3rd, 4th, and 5th steps.
+This project consists of **collecting**, **processing** and **analyzing** data of the Dutch real estate market, based on property listings available on [Funda](https://www.funda.nl/) website. The ETL pipeline carried out within it made use of Apache Airflow for orchestrating the Python scripts that run its main tasks and the Power BI application for the data analysis.
+However, it's possible to run the scripts directly as well, if you don't want to use Apache Airflow. Just skip the 3rd, 4th, and 5th steps.
 
-- Project Workflow
+- **Project Workflow**
     - Automated Extraction and Cleaning Pipeline using Apache Airflow (DAG) running 3 tasks:
         1. **E**xtract: webscraping_task running the webscraping_script.py - that collect data via Web Scraping using the [Funda Scraper](https://github.com/whchien/funda-scraper) module
         2. **T**ransform: processing_task running the data_processing_script.py - that does cleaning/pre-processing, executed in bite-size chunks, using
@@ -46,11 +46,12 @@ For loading the Power BI project (`.pbix` file), you'll need the Power BI Deskto
     pip install -r requirements.txt
     ```
 
-3. Install Apache Airflow by running the instructions bellow via bash script or setting manually the CONSTRAINT_URL:
+3. Install Apache Airflow by running the instructions bellow via bash script or command line:
    ```
    export AIRFLOW_HOME=~/airflow
     
-    AIRFLOW_VERSION=2.9.2
+   AIRFLOW_VERSION=2.9.2
+   PYTHON_VERSION="$(python --version | cut -d " " -f 2 | cut -d "." -f 1-2)"
     
     CONSTRAINT_URL="https://raw.githubusercontent.com/apache/airflow/constraints-${AIRFLOW_VERSION}/constraints-${PYTHON_VERSION}.txt"
     # For example this would install 2.9.2 with python 3.8: https://raw.githubusercontent.com/apache/airflow/constraints-2.9.2/constraints-3.8.txt
@@ -72,7 +73,9 @@ For loading the Power BI project (`.pbix` file), you'll need the Power BI Deskto
     ```
    The application runs on port 8080. To access Airflow's interface, open your web browser and navigate to http://127.0.0.1:8080/dags.
 
-5. In the Airflow DAG's page, click on the 'funda_tasks_dag'. At the upper right hand corner there is a play button, click on it and then, 'Trigger DAG'. Once the three tasks have a dark green circle, the tasks are successfully finished. Otherwise, red circles indicates failure, and if you click on the task and then the 'Logs' tab, you can check error messages.
+5. In the Airflow DAG's page, click on the 'funda_tasks_dag'. At the upper right hand corner there is a play button, click on it and then, **Trigger DAG**.
+
+   Once the three tasks have a dark green circle, the tasks are successfully finished. Otherwise, red circles indicates failure, and if you click on the task and then the 'Logs' tab, you can check error messages.
     
 6. **(optional)** Edit the parameters used for web scraping as you need (on the `src/webscraping_script.py` file). The default parameters used for this project were following:
    ```bash
@@ -86,23 +89,32 @@ For loading the Power BI project (`.pbix` file), you'll need the Power BI Deskto
     raw_data = True
     ```
    As those parameters are directly infeed into the Funda Scraper module on its usage, you can consult [its documentation](https://github.com/whchien/funda-scraper) and/or [Funda](https://www.funda.nl/) website to better understand how to adapt it to your use case.
+
+7. **(optional)** Edit the data processing script (`src/data_processing_script.py`) to set on it different parameters for the processing step, including file paths (from where files are read and written to);
+
+8. **(optional)** Edit the chunks concatenator script (`src/chunks_concat.py`), setting different parameters, including file paths (again to define from where files are read and written to).
    
-7. Run the web scraping script to collect data:
+
+### Only if you are NOT using Airflow
+
+9. Run the web scraping script to collect data:
     ```bash
     python src/webscraping_script.py
     ```
-8. **(optional)** Edit the data processing script (`src/data_processing_script.py`) to set on it different parameters for the processing step, including file paths (from where files are read and written to);
- 
-9. Run the data processing script:
+
+10. Run the data processing script:
     ```bash
     python src/data_processing_script.py
     ```
-10. **(optional)** Edit the chunks concatenator script (`src/chunks_concat.py`), setting different parameters, including some file paths (again to define from where files are read and written to).
 
 11. Run the chunks concatenator script:
     ```bash
     python src/chunks_concat.py
     ```
+
+
+### Data Analysis
+
 12. Open the Power BI project (`docs/reports/funda_report.pbix`) on the Power BI Desktop application, loading the processed data for analysis and visualization. If no personalization was made to change that, you'll find the processed data to be loaded on the Power BI Desktop application stored on its default location, at `data/preprocessed/processed_data.csv`.
 
 ## Results
