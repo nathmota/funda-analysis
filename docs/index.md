@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
 
-# Funda Properties Listings Data Analysis 
+# Funda Property Listings Data Analysis 
 
 Nathalia V. M. de Oliveira - April, 2024.
 
@@ -249,8 +249,8 @@ The processed data CSV file is loaded, and techniques such as type adjustment, c
 
 For outlier detection, the Z-score method was applied on the property prices and prices per m². Results greater than 3 were considered outliers, which in the dataset reflect prices from €1,900,000 and €4,299.06 per m². Then,
 
-- **782** properties ***prices*** were considered outliers, while **53,117** were considered normal.
-- **x** properties ***prices per m²*** were considered outliers, while **y** were considered normal.
+- **782** property ***prices*** were considered outliers, while **53,117** were considered normal.
+- **x** property ***prices per m²*** were considered outliers, while **y** were considered normal.
 
 ### Modeling
 
@@ -280,7 +280,7 @@ They are **53,929 listings** over 2030 cities.
 Zuid-Holland, Noord-Holland, and Noord-Brabant are the provinces with the **highest number of property listings** for sale, accounting for approximately 50% of the country's total supply.
 The standard map visual from Power BI uses coordinates as the geolocation indicators.
 
-### 2. Properties Overview
+### 2. Property Overview
 
 ![pg2](reports/pg2.png)
 
@@ -296,7 +296,7 @@ The second dashboard displays the occurrence of some features among the properti
 - The bar chart show us the main surroundings of the properties
 - On this page, it is also possible to see the results by city using the filters
 
-### 3. Properties Rooms
+### 3. Property Rooms
 
 ![pg3](reports/pg3.png)
    
