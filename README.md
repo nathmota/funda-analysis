@@ -11,7 +11,7 @@ However, it's possible to run the scripts directly as well, if you don't want to
         2. **T**ransform: processing_task running the `data_processing_script.py` - that does cleaning/pre-processing, executed in bite-size chunks, using
             - Numpy/Pandas for cleaning
             - Beautiful Soup for dataset enrichment, scraping some additional data directly from Funda
-            - Geopy for obtaining geolocations
+            - Geopy also for enrichment, obtaining the addresses' geolocation
         3. Concatenate: concat_task running the `chunks_concat.py` - that concatenate chunks and province files in a single file dataset
   Tasks Dependencies: webscraping_task >> processing_task >> concat_task
     - PowerBI part:
